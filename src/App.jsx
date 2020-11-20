@@ -1,7 +1,8 @@
-import { useState } from 'react';
 import { Router } from '@reach/router';
 import { ThemeProvider } from 'styled-components';
 import themes from 'Utils/Themes';
+
+import useLocalStorage from 'Hooks/useLocalStorage';
 
 import GlobalFonts from 'Styles/GlobalFonts';
 import GlobalStyles from 'Styles/GlobalStyles';
@@ -11,16 +12,16 @@ import Home from 'Pages/Home';
 import Detail from 'Pages/Detail';
 
 function App() {
-  const [appTheme, setAppTheme] = useState(themes.light);
+  const [appTheme, setAppTheme] = useLocalStorage('light', 'theme');
 
   const toggleTheme = () => {
-    setAppTheme(appTheme === themes.light ? themes.dark : themes.light);
+    setAppTheme(appTheme === 'light' ? 'dark' : 'light');
   };
 
   return (
     <>
       <GlobalFonts />
-      <ThemeProvider theme={appTheme}>
+      <ThemeProvider theme={themes[appTheme]}>
         <GlobalStyles />
         <Navbar changeTheme={toggleTheme} />
         <Router>
