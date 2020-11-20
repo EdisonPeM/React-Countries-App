@@ -5,8 +5,8 @@ import ElementMixin from 'UI/ElementMixin';
 
 const Wrapper = styled.div`
   ${ElementMixin}
-  padding: 10px;
-  width: 200px;
+  border-radius: 10px;
+  overflow: hidden;
 `;
 
 function Card({ name, population, region, capital, flag }) {
