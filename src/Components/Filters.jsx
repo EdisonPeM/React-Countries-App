@@ -1,9 +1,17 @@
 import React from 'react';
+import styled from 'styled-components';
+
+import ElementMixin from 'UI/ElementMixin';
+
+const Input = styled.input`
+  ${ElementMixin}
+  color: ${({ theme }) => theme.inputText};
+`;
 
 function Filters({ nameInput, regionInput }) {
   return (
     <div>
-      <input {...nameInput} />
+      <Input {...nameInput} />
       <select {...regionInput}>
         <option value="All">Filter by Region</option>
         <option value="Africa">Africa</option>

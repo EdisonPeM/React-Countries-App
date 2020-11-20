@@ -3,6 +3,7 @@ import { Router } from '@reach/router';
 import { ThemeProvider } from 'styled-components';
 import themes from 'Utils/Themes';
 
+import GlobalFonts from 'Styles/GlobalFonts';
 import GlobalStyles from 'Styles/GlobalStyles';
 
 import Navbar from 'Components/Navbar';
@@ -17,14 +18,17 @@ function App() {
   };
 
   return (
-    <ThemeProvider theme={appTheme}>
-      <GlobalStyles />
-      <Navbar changeTheme={toggleTheme} />
-      <Router>
-        <Home path="/" />
-        <Detail path="/:name" />
-      </Router>
-    </ThemeProvider>
+    <>
+      <GlobalFonts />
+      <ThemeProvider theme={appTheme}>
+        <GlobalStyles />
+        <Navbar changeTheme={toggleTheme} />
+        <Router>
+          <Home path="/" />
+          <Detail path="/:name" />
+        </Router>
+      </ThemeProvider>
+    </>
   );
 }
 

@@ -7,6 +7,8 @@ import useInputControl from 'Hooks/useInputControl';
 import Filters from 'Components/Filters';
 import Country from 'Components/CountryCard';
 
+import CardList from 'UI/CardList';
+
 import { normalizeText as n } from 'Utils/Formater';
 
 function Home() {
@@ -34,7 +36,7 @@ function Home() {
         }}
       />
 
-      <div>
+      <CardList>
         {countries
           .filter(nameFilter)
           .filter(regionFilter)
@@ -43,7 +45,7 @@ function Home() {
               <Country {...c} />
             </Link>
           ))}
-      </div>
+      </CardList>
     </div>
   );
 }

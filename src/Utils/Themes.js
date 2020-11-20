@@ -12,13 +12,15 @@ const themes = {
     color: COLORS.VeryDarkBlueText,
     bg: COLORS.VeryLightGray,
     elements: COLORS.White,
-    input: COLORS.DarkGray,
+    inputText: COLORS.DarkGray,
+    shadow: '0 0 5px #D0D0D0',
   },
   dark: {
     color: COLORS.White,
     bg: COLORS.VeryDarkBlueBg,
     elements: COLORS.DarkBlue,
-    input: COLORS.White,
+    inputText: COLORS.White,
+    shadow: '0 0 5px #191919',
   },
 };
 
