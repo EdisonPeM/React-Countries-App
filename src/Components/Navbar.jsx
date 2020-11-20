@@ -16,23 +16,14 @@ const Nav = styled.nav`
 `;
 
 function Navbar({ changeTheme }) {
-  const theme = useContext(ThemeContext);
+  const currentTheme = useContext(ThemeContext);
 
   return (
     <Nav>
       <h2>Where in the world?</h2>
       <button onClick={changeTheme}>
-        {theme === themes.light ? (
-          <>
-            <IosMoonOutline />
-            Light Mode
-          </>
-        ) : (
-          <>
-            <IosMoon />
-            Dark Mode
-          </>
-        )}
+        {currentTheme === themes.light ? <IosMoonOutline /> : <IosMoon />}
+        <span>Dark Mode</span>
       </button>
     </Nav>
   );

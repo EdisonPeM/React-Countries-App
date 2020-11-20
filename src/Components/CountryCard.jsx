@@ -12,7 +12,12 @@ const Wrapper = styled.div`
 function Card({ name, population, region, capital, flag }) {
   return (
     <Wrapper>
-      <img src={flag} alt={`Flag of ${name}`} title={`Flag of ${name}`} />
+      <img
+        loading="lazy"
+        src={flag}
+        alt={`Flag of ${name}`}
+        title={`Flag of ${name}`}
+      />
       <h1>{name}</h1>
       <ul>
         <li>Population: {population}</li>

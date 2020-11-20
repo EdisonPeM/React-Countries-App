@@ -4,7 +4,6 @@ import themes from 'Utils/Themes';
 
 import useLocalStorage from 'Hooks/useLocalStorage';
 
-import GlobalFonts from 'Styles/GlobalFonts';
 import GlobalStyles from 'Styles/GlobalStyles';
 
 import Navbar from 'Components/Navbar';
@@ -20,7 +19,6 @@ function App() {
 
   return (
     <>
-      <GlobalFonts />
       <ThemeProvider theme={themes[appTheme]}>
         <GlobalStyles />
         <Navbar changeTheme={toggleTheme} />

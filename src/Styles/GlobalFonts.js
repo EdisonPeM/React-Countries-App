@@ -4,8 +4,9 @@ import { createGlobalStyle } from 'styled-components';
 // import NameOfYourFontWoff2 from './nameOfYourFont.woff2';
 
 const GlobalFonts = createGlobalStyle`
-  @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');    
 `;
+
+// @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
 
 /**
  * @font-face {

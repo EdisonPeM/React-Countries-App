@@ -9,8 +9,8 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     font-family: 'Nunito Sans', sans-serif;
 
-    color: ${props => props.theme.color};
-    background-color: ${props => props.theme.bg};
+    color: ${({ theme }) => theme.color};
+    background-color: ${({ theme }) => theme.bg};
   }
 
   img {
