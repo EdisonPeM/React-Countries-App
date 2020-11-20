@@ -1,18 +1,29 @@
 import React, { useContext } from 'react';
-import ThemeContext from 'Utils/ThemeContext';
+import { ThemeContext } from 'styled-components';
+
+import themes from 'Utils/Themes';
 
 import IosMoon from 'react-ionicons/lib/IosMoon';
 import IosMoonOutline from 'react-ionicons/lib/IosMoonOutline';
 
-function Navbar() {
-  const { theme, toggleTheme } = useContext(ThemeContext);
+function Navbar({ changeTheme }) {
+  const theme = useContext(ThemeContext);
 
   return (
     <nav>
       <h2>Where in the world?</h2>
-      <button onClick={toggleTheme}>
-        {theme === 'light' ? <IosMoonOutline /> : <IosMoon />}
-        <span>{theme} Mode</span>
+      <button onClick={changeTheme}>
+        {theme === themes.light ? (
+          <>
+            <IosMoonOutline />
+            Light Mode
+          </>
+        ) : (
+          <>
+            <IosMoon />
+            Dark Mode
+          </>
+        )}
       </button>
     </nav>
   );

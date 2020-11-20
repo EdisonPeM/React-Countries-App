@@ -1,32 +1,30 @@
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import { ThemeProvider } from 'Utils/ThemeContext';
+import { useState } from 'react';
+import { Router } from '@reach/router';
+import { ThemeProvider } from 'styled-components';
+import themes from 'Utils/Themes';
 
 import GlobalStyles from 'Styles/GlobalStyles';
 
 import Navbar from 'Components/Navbar';
-
 import Home from 'Pages/Home';
 import Detail from 'Pages/Detail';
-import { useState } from 'react';
 
 function App() {
-  const [theme, setTheme] = useState('light');
+  const [appTheme, setAppTheme] = useState(themes.light);
 
   const toggleTheme = () => {
-    setTheme(theme === 'light' ? 'dark' : 'light');
+    setAppTheme(appTheme === themes.light ? themes.dark : themes.light);
   };
 
   return (
-    <BrowserRouter>
-      <ThemeProvider value={{ theme, toggleTheme }}>
-        <GlobalStyles />
-        <Navbar />
-        <Switch>
-          <Route path="/:name" component={Detail}></Route>
-          <Route path="/" component={Home}></Route>
-        </Switch>
-      </ThemeProvider>
-    </BrowserRouter>
+    <ThemeProvider theme={appTheme}>
+      <GlobalStyles />
+      <Navbar changeTheme={toggleTheme} />
+      <Router>
+        <Home path="/" />
+        <Detail path="/:name" />
+      </Router>
+    </ThemeProvider>
   );
 }
 

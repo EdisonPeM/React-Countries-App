@@ -1,10 +1,9 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { Link } from '@reach/router';
 
 import useCountries from 'Hooks/useCountries';
 
-function Detail() {
-  const { name } = useParams();
+function Detail({ name }) {
   const [[info], loading, error] = useCountries(`name/${name}`);
 
   if (loading) return <div>Loading...</div>;
@@ -12,6 +11,7 @@ function Detail() {
   return (
     info !== undefined && (
       <div>
+        <Link to="/">Volver</Link>
         <h1>{name}</h1>
         <img
           src={info.flag}

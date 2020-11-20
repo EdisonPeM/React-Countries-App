@@ -1,13 +1,13 @@
 import React from 'react';
+import { Link } from '@reach/router';
 
 import useCountries from 'Hooks/useCountries';
 import useInputControl from 'Hooks/useInputControl';
 
-import Country from 'Components/CountryCard';
 import Filters from 'Components/Filters';
+import Country from 'Components/CountryCard';
 
 import { normalizeText as n } from 'Utils/Formater';
-import { Link } from 'react-router-dom';
 
 function Home() {
   const [countries, loading, error] = useCountries(
@@ -39,7 +39,7 @@ function Home() {
           .filter(nameFilter)
           .filter(regionFilter)
           .map(c => (
-            <Link key={c.name} to={c.name}>
+            <Link to={c.name} key={c.name}>
               <Country {...c} />
             </Link>
           ))}
