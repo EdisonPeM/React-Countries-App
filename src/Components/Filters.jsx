@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import ElementMixin from 'UI/ElementMixin';
+import { ElementMixin } from 'UI/Element';
 
 const Input = styled.input`
   ${ElementMixin}

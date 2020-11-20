@@ -1,10 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import ElementMixin from 'UI/ElementMixin';
+import Element from 'UI/Element';
 
-const Wrapper = styled.div`
-  ${ElementMixin}
+const Wrapper = styled(Element)`
   border-radius: 10px;
   overflow: hidden;
 `;

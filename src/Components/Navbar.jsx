@@ -6,7 +6,7 @@ import themes from 'Utils/Themes';
 import IosMoon from 'react-ionicons/lib/IosMoon';
 import IosMoonOutline from 'react-ionicons/lib/IosMoonOutline';
 
-import ElementMixin from 'UI/ElementMixin';
+import { ElementMixin } from 'UI/Element';
 
 const Nav = styled.nav`
   ${ElementMixin}
