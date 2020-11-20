@@ -5,8 +5,10 @@ import useCountries from 'Hooks/useCountries';
 
 function Detail() {
   const { name } = useParams();
-  const [info] = useCountries(`name/${name}?fullText=true`);
+  const [[info], loading, error] = useCountries(`name/${name}`);
 
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Country does not exist</div>;
   return (
     info !== undefined && (
       <div>
@@ -43,6 +45,9 @@ function Detail() {
             <b>Languages:</b> {info.languages.map(l => l.name).join(', ')}
           </li>
         </ul>
+        <div>
+          <b>Border Countries: {info.borders.join(', ')}</b>
+        </div>
       </div>
     )
   );

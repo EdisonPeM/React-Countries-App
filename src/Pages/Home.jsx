@@ -10,7 +10,7 @@ import { normalizeText as n } from 'Utils/Formater';
 import { Link } from 'react-router-dom';
 
 function Home() {
-  const countries = useCountries(
+  const [countries, loading, error] = useCountries(
     'all?fields=name;capital;population;region;flag'
   );
   const [nameF, setNameF] = useInputControl('');
@@ -19,6 +19,8 @@ function Home() {
   const nameFilter = c => n(c.name).includes(n(nameF));
   const regionFilter = c => regionF === 'All' || c.region === regionF;
 
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error With Connection</div>;
   return (
     <div>
       <Filters

@@ -52,4 +52,4 @@ class HTTPClient {
   }
 }
 
-export default new HTTPClient('https://restcountries.eu/rest/v2/');
+export default HTTPClient;
