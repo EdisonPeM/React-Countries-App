@@ -7,7 +7,12 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     font-family: 'Nunito Sans', sans-serif;
 
-    ${props => console.log(props.theme)}
+    color: ${props => props.theme.color};
+    background-color: ${props => props.theme.bg};
+  }
+
+  a {
+    color: inherit;
   }
 `;
 
