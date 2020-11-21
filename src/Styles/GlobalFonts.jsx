@@ -1,13 +1,13 @@
 import { css } from 'styled-components';
 
-import NunitoSansLightTTF from '../Fonts/Nunito/NunitoSans-Light.ttf';
-import NunitoSansLightWoff from '../Fonts/Nunito/NunitoSans-Light.woff2';
+import NunitoSansLightTTF from './Fonts/Nunito/NunitoSans-Light.ttf';
+import NunitoSansLightWoff from './Fonts/Nunito/NunitoSans-Light.woff2';
 
-import NunitoSansSemiBoldTTF from '../Fonts/Nunito/NunitoSans-SemiBold.ttf';
-import NunitoSansSemiBoldWoff from '../Fonts/Nunito/NunitoSans-SemiBold.woff2';
+import NunitoSansSemiBoldTTF from './Fonts/Nunito/NunitoSans-SemiBold.ttf';
+import NunitoSansSemiBoldWoff from './Fonts/Nunito/NunitoSans-SemiBold.woff2';
 
-import NunitoSansExtraBoldTTF from '../Fonts/Nunito/NunitoSans-ExtraBold.ttf';
-import NunitoSansExtraBoldWoff from '../Fonts/Nunito/NunitoSans-ExtraBold.woff2';
+import NunitoSansExtraBoldTTF from './Fonts/Nunito/NunitoSans-ExtraBold.ttf';
+import NunitoSansExtraBoldWoff from './Fonts/Nunito/NunitoSans-ExtraBold.woff2';
 
 const GlobalFonts = css`
   @font-face {
