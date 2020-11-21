@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from '@reach/router';
 
 import useCountries from 'Hooks/useCountries';
 import useInputControl from 'Hooks/useInputControl';
@@ -20,11 +19,12 @@ function Home() {
 
   const nameFilter = c => n(c.name).includes(n(nameF));
   const regionFilter = c => regionF === 'All' || c.region === regionF;
+  // const regionFilter = c => regionF.length === 0 || regionF.includes(c.region);
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error With Connection</div>;
   return (
-    <div>
+    <>
       <Filters
         nameInput={{
           value: nameF,
@@ -41,12 +41,10 @@ function Home() {
           .filter(nameFilter)
           .filter(regionFilter)
           .map(c => (
-            <Link to={c.name} key={c.name}>
-              <Country {...c} />
-            </Link>
+            <Country key={c.name} {...c} />
           ))}
       </CardList>
-    </div>
+    </>
   );
 }
 

@@ -1,36 +1,34 @@
 import React from 'react';
-import styled from 'styled-components';
 
-import Element from 'UI/Element';
+import { Wrapper, Card } from './CountryCard.styles';
 
-const Wrapper = styled(Element)`
-  border-radius: 10px;
-  overflow: hidden;
-`;
-
-const Flag = styled.img`
-  width: 100%;
-  height: 160px;
-  object-fit: cover;
-`;
-
-function Card({ name, population, region, capital, flag }) {
+function CountryCard({ name, population, region, capital, flag }) {
   return (
-    <Wrapper>
-      <Flag
-        loading="lazy"
-        src={flag}
-        alt={`Flag of ${name}`}
-        title={`Flag of ${name}`}
-      />
-      <h1>{name}</h1>
-      <ul>
-        <li>Population: {population}</li>
-        <li>Region: {region}</li>
-        <li>Capital: {capital}</li>
-      </ul>
+    <Wrapper to={'/' + name}>
+      <Card>
+        <Card.Flag
+          loading="lazy"
+          src={flag}
+          alt={`Flag of ${name}`}
+          title={`Flag of ${name}`}
+        />
+        <Card.Body>
+          <Card.Title>{name}</Card.Title>
+          <Card.List>
+            <Card.Item>
+              <b>Population:</b> {population}
+            </Card.Item>
+            <Card.Item>
+              <b>Region:</b> {region}
+            </Card.Item>
+            <Card.Item>
+              <b>Capital:</b> {capital}
+            </Card.Item>
+          </Card.List>
+        </Card.Body>
+      </Card>
     </Wrapper>
   );
 }
 
-export default Card;
+export default CountryCard;
