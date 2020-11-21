@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { Wrapper, Card } from './CountryCard.styles';
+import { numberFormat } from 'Utils/Formater';
 
 function CountryCard({ name, population, region, capital, flag }) {
   return (
@@ -16,7 +17,7 @@ function CountryCard({ name, population, region, capital, flag }) {
           <Card.Title>{name}</Card.Title>
           <Card.List>
             <Card.Item>
-              <b>Population:</b> {population}
+              <b>Population:</b> {numberFormat(+population)}
             </Card.Item>
             <Card.Item>
               <b>Region:</b> {region}
