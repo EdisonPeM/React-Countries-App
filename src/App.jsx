@@ -6,7 +6,9 @@ import useLocalStorage from 'Hooks/useLocalStorage';
 
 import GlobalStyles from 'Styles/GlobalStyles';
 
-import Navbar from 'Components/Navbar';
+import Navbar from 'Layout/Navbar';
+import ViewPort from 'Layout/ViewPort';
+
 import Home from 'Pages/Home';
 import Detail from 'Pages/Detail';
 
@@ -18,16 +20,16 @@ function App() {
   };
 
   return (
-    <>
-      <ThemeProvider theme={themes[appTheme]}>
-        <GlobalStyles />
-        <Navbar changeTheme={toggleTheme} />
+    <ThemeProvider theme={themes[appTheme]}>
+      <GlobalStyles />
+      <Navbar changeTheme={toggleTheme} />
+      <ViewPort>
         <Router>
           <Home path="/" />
           <Detail path="/:name" />
         </Router>
-      </ThemeProvider>
-    </>
+      </ViewPort>
+    </ThemeProvider>
   );
 }
 

@@ -4,6 +4,10 @@ const GlobalStyle = createGlobalStyle`
   * {
     box-sizing: border-box;
   }  
+
+  html {
+    scroll-behavior: smooth;
+  }
   
   body {
     margin: 0;
@@ -21,5 +25,15 @@ const GlobalStyle = createGlobalStyle`
     color: inherit;
   }
 `;
+
+export const generalStyles = {
+  breakpoint: 'min-width: 768px',
+  mobile: {
+    paddingX: '15px',
+  },
+  desktop: {
+    paddingX: '80px',
+  },
+};
 
 export default GlobalStyle;

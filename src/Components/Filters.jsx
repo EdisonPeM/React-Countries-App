@@ -3,6 +3,10 @@ import styled from 'styled-components';
 
 import { ElementMixin } from 'UI/Element';
 
+const Wrapper = styled.div`
+  padding: 48px 0;
+`;
+
 const Input = styled.input`
   ${ElementMixin}
   color: ${({ theme }) => theme.inputText};
@@ -10,7 +14,7 @@ const Input = styled.input`
 
 function Filters({ nameInput, regionInput }) {
   return (
-    <div>
+    <Wrapper>
       <Input {...nameInput} />
       <select {...regionInput}>
         <option value="All">Filter by Region</option>
@@ -20,7 +24,7 @@ function Filters({ nameInput, regionInput }) {
         <option value="Europe">Europe</option>
         <option value="Oceania">Oceania</option>
       </select>
-    </div>
+    </Wrapper>
   );
 }
 

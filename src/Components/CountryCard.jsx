@@ -8,10 +8,16 @@ const Wrapper = styled(Element)`
   overflow: hidden;
 `;
 
+const Flag = styled.img`
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+`;
+
 function Card({ name, population, region, capital, flag }) {
   return (
     <Wrapper>
-      <img
+      <Flag
         loading="lazy"
         src={flag}
         alt={`Flag of ${name}`}
