@@ -11,7 +11,7 @@ import { normalizeText as n } from 'Utils/Formater';
 
 function Home() {
   const [countries, loading, error] = useCountries(
-    'all?fields=name;capital;population;region;flag'
+    'all?fields=alpha3Code;name;capital;population;region;flag'
   );
   const [nameF, setNameF] = useInputControl('');
   const [regionF, setRegionF] = useInputControl('All');

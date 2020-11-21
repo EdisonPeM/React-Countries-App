@@ -3,9 +3,16 @@ import React from 'react';
 import { Wrapper, Card } from './CountryCard.styles';
 import { numberFormat } from 'Utils/Formater';
 
-function CountryCard({ name, population, region, capital, flag }) {
+function CountryCard({
+  alpha3Code: code,
+  name,
+  population,
+  region,
+  capital,
+  flag,
+}) {
   return (
-    <Wrapper to={'/' + name}>
+    <Wrapper to={'/' + code}>
       <Card>
         <Card.Flag
           loading="lazy"

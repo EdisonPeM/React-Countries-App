@@ -17,8 +17,8 @@ export default function useCountries(endPoint) {
         setLoading(false);
       })
       .catch(err => {
-        setLoading(false);
         setError(true);
+        setLoading(false);
       });
   }, [endPoint]);
 

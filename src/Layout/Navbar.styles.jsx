@@ -22,6 +22,7 @@ export const Nav = styled.nav`
   top: ${({ show }) => (show ? '0' : '-80px')};
   left: 0;
   right: 0;
+  z-index: 1000;
   transition: top 600ms;
 `;
 

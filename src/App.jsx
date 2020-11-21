@@ -29,7 +29,7 @@ function App() {
         <ViewPort>
           <Router>
             <Home path="/" />
-            <Detail path="/:name" />
+            <Detail path="/:code" />
           </Router>
         </ViewPort>
       </ThemeProvider>
