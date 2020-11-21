@@ -8,4 +8,5 @@ export const ElementMixin = css`
 const Element = styled.div`
   ${ElementMixin}
 `;
+
 export default Element;

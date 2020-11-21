@@ -5,6 +5,7 @@ import themes from 'Utils/Themes';
 import useLocalStorage from 'Hooks/useLocalStorage';
 
 import GlobalStyles from 'Styles/GlobalStyles';
+import ThemedStyles from 'Styles/ThemedStyles';
 
 import Navbar from 'Layout/Navbar';
 import ViewPort from 'Layout/ViewPort';
@@ -20,16 +21,19 @@ function App() {
   };
 
   return (
-    <ThemeProvider theme={themes[appTheme]}>
+    <>
       <GlobalStyles />
-      <Navbar changeTheme={toggleTheme} />
-      <ViewPort>
-        <Router>
-          <Home path="/" />
-          <Detail path="/:name" />
-        </Router>
-      </ViewPort>
-    </ThemeProvider>
+      <ThemeProvider theme={themes[appTheme]}>
+        <ThemedStyles />
+        <Navbar changeTheme={toggleTheme} />
+        <ViewPort>
+          <Router>
+            <Home path="/" />
+            <Detail path="/:name" />
+          </Router>
+        </ViewPort>
+      </ThemeProvider>
+    </>
   );
 }
 

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import Element from 'UI/Element';
+import Element from 'Styles/StyledElement';
 import { Link } from '@reach/router';
 
 export const Wrapper = styled(Link)`

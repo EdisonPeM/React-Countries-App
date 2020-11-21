@@ -16,9 +16,6 @@ const GlobalStyle = createGlobalStyle`
     margin: 0;
     font-family: 'Nunito Sans', sans-serif;
     font-weight: 300;
-
-    color: ${({ theme }) => theme.color};
-    background-color: ${({ theme }) => theme.bg};
   }
 
   img {

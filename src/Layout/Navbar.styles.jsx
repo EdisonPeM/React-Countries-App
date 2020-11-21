@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import { generalStyles } from 'Styles/GlobalStyles';
-import { ElementMixin } from 'UI/Element';
+import { ElementMixin } from 'Styles/StyledElement';
 
 export const Nav = styled.nav`
   ${ElementMixin}
@@ -22,7 +22,7 @@ export const Nav = styled.nav`
   top: ${({ show }) => (show ? '0' : '-80px')};
   left: 0;
   right: 0;
-  transition: top 200ms;
+  transition: top 600ms;
 `;
 
 export const ThemeButton = styled.button`

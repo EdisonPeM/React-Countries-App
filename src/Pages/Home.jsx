@@ -4,9 +4,8 @@ import useCountries from 'Hooks/useCountries';
 import useInputControl from 'Hooks/useInputControl';
 
 import Filters from 'Components/Filters';
+import CardList from 'Components/CardList';
 import Country from 'Components/CountryCard';
-
-import CardList from 'UI/CardList';
 
 import { normalizeText as n } from 'Utils/Formater';
 
