@@ -1,24 +1,40 @@
-import { createGlobalStyle } from 'styled-components';
+import { css } from 'styled-components';
 
-// import NameOfYourFontWoff from './nameOfYourFont.woff';
-// import NameOfYourFontWoff2 from './nameOfYourFont.woff2';
+import NunitoSansLightTTF from '../Fonts/Nunito/NunitoSans-Light.ttf';
+import NunitoSansLightWoff from '../Fonts/Nunito/NunitoSans-Light.woff2';
 
-const GlobalFonts = createGlobalStyle`
+import NunitoSansSemiBoldTTF from '../Fonts/Nunito/NunitoSans-SemiBold.ttf';
+import NunitoSansSemiBoldWoff from '../Fonts/Nunito/NunitoSans-SemiBold.woff2';
+
+import NunitoSansExtraBoldTTF from '../Fonts/Nunito/NunitoSans-ExtraBold.ttf';
+import NunitoSansExtraBoldWoff from '../Fonts/Nunito/NunitoSans-ExtraBold.woff2';
+
+const GlobalFonts = css`
+  @font-face {
+    font-family: 'Nunito Sans';
+    font-weight: 300;
+    font-style: normal;
+    src: url(${NunitoSansLightWoff}) format('woff2'),
+      url(${NunitoSansLightTTF}) format('truetype');
+  }
+
+  @font-face {
+    font-family: 'Nunito Sans';
+    font-weight: 600;
+    font-style: normal;
+    src: url(${NunitoSansSemiBoldWoff}) format('woff2'),
+      url(${NunitoSansSemiBoldTTF}) format('truetype');
+  }
+
+  @font-face {
+    font-family: 'Nunito Sans';
+    font-weight: 800;
+    font-style: normal;
+    src: url(${NunitoSansExtraBoldWoff}) format('woff2'),
+      url(${NunitoSansExtraBoldTTF}) format('truetype');
+  } ;
 `;
 
 // @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
-
-/**
- * @font-face {
-        font-family: 'Font Name';
-        src: local('Font Name'), local('FontName'),
-        url(${NameOfYourFontWoff2}) format('woff2'),
-        url(${NameOfYourFontWoff}) format('woff');
-        font-weight: 300;
-        font-style: normal;
-    }
-
-
- */
 
 export default GlobalFonts;

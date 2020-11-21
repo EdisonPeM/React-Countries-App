@@ -1,6 +1,9 @@
 import { createGlobalStyle } from 'styled-components';
+import GlobalFonts from './GlobalFonts';
 
 const GlobalStyle = createGlobalStyle`    
+  ${GlobalFonts}
+
   * {
     box-sizing: border-box;
   }  
@@ -12,6 +15,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     font-family: 'Nunito Sans', sans-serif;
+    font-weight: 300;
 
     color: ${({ theme }) => theme.color};
     background-color: ${({ theme }) => theme.bg};
