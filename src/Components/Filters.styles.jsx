@@ -24,14 +24,13 @@ export const InputGroup = styled.div`
 const InputMixin = css`
   ${ElementMixin}
 
-  font: inherit;
   color: ${({ theme }) => theme.inputText};
   &::placeholder {
     color: ${({ theme }) => theme.inputText};
   }
 
   display: block;
-  height: 54px;
+  height: 50px;
   padding: 0 15px;
   border: none;
   border-radius: 8px;

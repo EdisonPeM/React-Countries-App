@@ -16,7 +16,7 @@ function Filters({ nameInput, regionInput }) {
         <SearchIcon />
       </InputGroup>
       <InputGroup>
-        <Select>
+        <Select {...regionInput}>
           <option value="All">Filter by Region</option>
           <option value="Africa">Africa</option>
           <option value="Americas">Americas</option>
