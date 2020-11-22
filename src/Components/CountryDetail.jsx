@@ -50,20 +50,27 @@ function CountryDetail(props) {
             </li>
           </Country.List>
         </Country.Info>
-        {props.borders.length > 0 && !loading && !error && (
-          <Borders>
-            <Borders.Title>Border Countries: </Borders.Title>
-            <Borders.List>
-              {borders.map(b => (
-                <li key={b.alpha3Code}>
-                  <LinkCard to={'/' + b.alpha3Code} small="true">
-                    {b.name}
-                  </LinkCard>
-                </li>
-              ))}
-            </Borders.List>
-          </Borders>
-        )}
+        <Borders>
+          {props.borders.length > 0 ? (
+            !loading &&
+            !error && (
+              <>
+                <Borders.Title>Border Countries: </Borders.Title>
+                <Borders.List>
+                  {borders.map(b => (
+                    <li key={b.alpha3Code}>
+                      <LinkCard to={'/' + b.alpha3Code} small="true">
+                        {b.name}
+                      </LinkCard>
+                    </li>
+                  ))}
+                </Borders.List>
+              </>
+            )
+          ) : (
+            <Borders.Title>Has No Border Countries</Borders.Title>
+          )}
+        </Borders>
       </Country.Body>
     </Country>
   );

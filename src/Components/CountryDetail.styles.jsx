@@ -1,20 +1,34 @@
 import styled from 'styled-components';
-import { generalStyles } from 'Styles/GlobalStyles';
+import { generalStyles, breakpoints } from 'Styles/GlobalStyles';
 
 export const Country = styled.article`
   padding: 30px 15px;
   @media (${generalStyles.breakpoint}) {
     padding: 0;
+    padding-bottom: 50px;
   }
 
   display: grid;
-  grid-template-columns: 320px;
+  grid-template-columns: minmax(auto, 320px);
   justify-content: center;
+  align-items: center;
   gap: 50px;
 
+  @media (${breakpoints.mobileL}) {
+    grid-template-columns: minmax(320px, 1fr);
+  }
+
   @media (${generalStyles.breakpoint}) {
-    grid-template-columns: repeat(auto-fit, 600px);
+    grid-template-columns: 600px;
+  }
+
+  @media (${breakpoints.laptop}) {
+    grid-template-columns: 1fr 1fr;
     justify-content: space-between;
+  }
+
+  @media (${breakpoints.laptopL}) {
+    grid-template-columns: repeat(2, 600px);
   }
 `;
 
@@ -22,16 +36,23 @@ Country.Flag = styled.img`
   object-fit: cover;
 
   width: 100%;
-  height: 230px;
+  height: auto;
+  min-height: 230px;
+  max-height: 300px;
+
   @media (${generalStyles.breakpoint}) {
     padding-right: 40px;
+    max-height: 400px;
+  }
+
+  @media (${breakpoints.laptopL}) {
     height: 400px;
   }
 `;
 
 Country.Body = styled.div`
   font-size: 14px;
-  @media (${generalStyles.breakpoint}) {
+  @media (${breakpoints.mobileL}) {
     font-size: 16px;
   }
 `;
@@ -42,16 +63,29 @@ Country.Title = styled.h1`
     margin-top: 35px;
     margin-bottom: 35px;
   }
+
   margin-top: 0;
   margin-bottom: 5px;
 `;
 
 Country.Info = styled.div`
-  display: flex;
-  flex-direction: column;
+  display: grid;
   justify-content: space-between;
+
+  @media (${breakpoints.mobileL}) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 50px;
+  }
+
   @media (${generalStyles.breakpoint}) {
-    flex-direction: row;
+  }
+
+  @media (${breakpoints.laptop}) {
+    grid-template-columns: 1fr;
+  }
+
+  @media (${breakpoints.laptopL}) {
+    grid-template-columns: repeat(2, 1fr);
   }
 `;
 
@@ -78,6 +112,14 @@ export const Borders = styled.section`
   display: flex;
   flex-direction: column;
   @media (${generalStyles.breakpoint}) {
+    flex-direction: row;
+  }
+
+  @media (${breakpoints.laptop}) {
+    flex-direction: column;
+  }
+
+  @media (${breakpoints.laptopL}) {
     flex-direction: row;
   }
 `;
