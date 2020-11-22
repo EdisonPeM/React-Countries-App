@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { ThemeContext } from 'styled-components';
 import useHiddenOnScroll from 'Hooks/useHiddenOnScroll';
 
-import themes from 'Utils/Themes';
+import themes from 'Styles/Themes';
 
 import IosMoon from 'react-ionicons/lib/IosMoon';
 import IosMoonOutline from 'react-ionicons/lib/IosMoonOutline';

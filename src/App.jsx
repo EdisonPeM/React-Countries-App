@@ -1,6 +1,6 @@
 import { Router } from '@reach/router';
 import { ThemeProvider } from 'styled-components';
-import themes from 'Utils/Themes';
+import themes from 'Styles/Themes';
 
 import useLocalStorage from 'Hooks/useLocalStorage';
 

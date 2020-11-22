@@ -30,10 +30,10 @@ const GlobalStyle = createGlobalStyle`
 export const generalStyles = {
   breakpoint: 'min-width: 768px',
   mobile: {
-    paddingX: '15px',
+    paddingVieport: '15px',
   },
   desktop: {
-    paddingX: '80px',
+    paddingVieport: '80px',
   },
 };
 

@@ -12,10 +12,10 @@ export const Nav = styled.nav`
   align-items: center;
 
   font-size: 12px;
-  padding: 15px ${generalStyles.mobile.paddingX};
+  padding: 15px ${generalStyles.mobile.paddingXVieport};
   @media (${generalStyles.breakpoint}) {
     font-size: initial;
-    padding: 15px ${generalStyles.desktop.paddingX};
+    padding: 15px ${generalStyles.desktop.paddingXVieport};
   }
 
   position: sticky;
