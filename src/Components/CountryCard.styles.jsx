@@ -28,7 +28,6 @@ Card.Body = styled.div`
 // The Card is an Article, therefore the title must be an h1
 Card.Title = styled.h1`
   font-size: 1.25em;
-  font-weight: 800;
   margin: 15px 0;
 `;
 
@@ -40,7 +39,4 @@ Card.List = styled.ul`
 
 Card.Item = styled.li`
   margin-bottom: 5px;
-  & > b {
-    font-weight: 600;
-  }
 `;

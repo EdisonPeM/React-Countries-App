@@ -25,6 +25,15 @@ const GlobalStyle = createGlobalStyle`
   a {
     color: inherit;
   }
+
+  b {
+    font-weight: 600;
+  }
+
+  h1 {
+    font-size: 1.5em;
+    font-weight: 800;
+  }
 `;
 
 export const generalStyles = {

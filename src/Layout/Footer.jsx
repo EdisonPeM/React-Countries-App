@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { generalStyles } from 'Styles/GlobalStyles';
 
 const Foot = styled.footer`
   height: 80px;
@@ -10,6 +11,11 @@ const Foot = styled.footer`
   align-items: center;
 
   text-align: center;
+
+  font-size: 10px;
+  @media (${generalStyles.breakpoint}) {
+    font-size: initial; // 16px
+  }
 `;
 
 function Footer() {

@@ -1,40 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import { generalStyles } from 'Styles/GlobalStyles';
 
 import { numberFormat as nF } from 'Utils/Formater';
 import LinkCard from './LinkCard';
 import useCountries from 'Hooks/useCountries';
-
-const Country = styled.article`
-  padding: 30px 15px;
-  @media (${generalStyles.breakpoint}) {
-    padding: 0;
-  }
-
-  display: block;
-  @media (${generalStyles.breakpoint}) {
-    display: flex;
-  }
-`;
-
-Country.Flag = styled.img`
-  // object-fit: cover;
-
-  height: auto;
-  @media (${generalStyles.breakpoint}) {
-    max-width: 600px;
-    height: 400px;
-  }
-`;
-
-Country.Info = styled.div`
-  font-size: 14px;
-  @media (${generalStyles.breakpoint}) {
-    font-size: 16px;
-  }
-`;
+import { Country, Borders } from './CountryDetail.styles';
 
 function CountryDetail(props) {
   const [borders, loading, error] = useCountries(
@@ -49,8 +19,8 @@ function CountryDetail(props) {
         title={`Flag of ${props.name}`}
       />
       <Country.Info>
-        <h2>{props.name}</h2>
-        <ul>
+        <Country.Title>{props.name}</Country.Title>
+        <Country.List>
           <li>
             <b>Native Name:</b> {props.nativeName}
           </li>
@@ -66,6 +36,8 @@ function CountryDetail(props) {
           <li>
             <b>Capital:</b> {props.capital}
           </li>
+        </Country.List>
+        <Country.List>
           <li>
             <b>Top Level Domain:</b> {props.topLevelDomain.join(', ')}
           </li>
@@ -75,18 +47,20 @@ function CountryDetail(props) {
           <li>
             <b>Languages:</b> {props.languages.map(l => l.name).join(', ')}
           </li>
-        </ul>
+        </Country.List>
         {props.borders.length > 0 && !loading && !error && (
-          <ul>
-            <b>Border Countries: </b>
-            {borders.map(b => (
-              <li key={b.alpha3Code} style={{ marginBottom: '10px' }}>
-                <small>
-                  <LinkCard to={'/' + b.alpha3Code}>{b.name}</LinkCard>
-                </small>
-              </li>
-            ))}
-          </ul>
+          <Borders>
+            <Borders.Title>Border Countries: </Borders.Title>
+            <Borders.List>
+              {borders.map(b => (
+                <li key={b.alpha3Code}>
+                  <LinkCard to={'/' + b.alpha3Code} small="true">
+                    {b.name}
+                  </LinkCard>
+                </li>
+              ))}
+            </Borders.List>
+          </Borders>
         )}
       </Country.Info>
     </Country>
