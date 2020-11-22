@@ -60,8 +60,11 @@ Country.Body = styled.div`
 Country.Title = styled.h1`
   @media (${generalStyles.breakpoint}) {
     font-size: 2em;
-    margin-top: 35px;
     margin-bottom: 35px;
+  }
+
+  @media (${breakpoints.laptopL}) {
+    margin-top: 35px;
   }
 
   margin-top: 0;
