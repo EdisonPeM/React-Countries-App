@@ -40,7 +40,7 @@ function Home() {
           .filter(nameFilter)
           .filter(regionFilter)
           .map(c => (
-            <Country key={c.name} {...c} />
+            <Country key={c.alpha3Code} {...c} />
           ))}
       </CardList>
     </>

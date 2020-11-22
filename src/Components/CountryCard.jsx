@@ -1,18 +1,12 @@
 import React, { memo } from 'react';
+import PropTypes from 'prop-types';
 
 import { Wrapper, Card } from './CountryCard.styles';
 import { numberFormat } from 'Utils/Formater';
 
-function CountryCard({
-  alpha3Code: code,
-  name,
-  population,
-  region,
-  capital,
-  flag,
-}) {
+function CountryCard({ alpha3Code, name, population, region, capital, flag }) {
   return (
-    <Wrapper to={'/' + code}>
+    <Wrapper to={'/' + alpha3Code}>
       <Card>
         <Card.Flag
           loading="lazy"
@@ -38,5 +32,14 @@ function CountryCard({
     </Wrapper>
   );
 }
+
+CountryCard.propTypes = {
+  alpha3Code: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  population: PropTypes.number.isRequired,
+  region: PropTypes.string.isRequired,
+  capital: PropTypes.string.isRequired,
+  flag: PropTypes.string.isRequired,
+};
 
 export default memo(CountryCard);

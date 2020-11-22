@@ -5,6 +5,7 @@ import { ElementMixin } from 'Styles/StyledElement';
 
 export const Nav = styled.nav`
   ${ElementMixin}
+  border-radius: 0;
   height: 80px;
 
   display: flex;
@@ -26,10 +27,7 @@ export const Nav = styled.nav`
   transition: top 600ms;
 `;
 
-Nav.Title = styled.h1`
-  font-size: 1.5em;
-  font-weight: 800;
-`;
+Nav.Title = styled.h1``;
 
 Nav.ThemeButton = styled.button`
   font-size: 1em;
@@ -44,7 +42,8 @@ Nav.ThemeButton = styled.button`
   outline: none;
   cursor: pointer;
 
-  & > span {
+  // Nested Span
+  span {
     margin-left: 5px;
   }
 `;

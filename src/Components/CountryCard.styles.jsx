@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import Element from 'Styles/StyledElement';
+import { ElementMixin } from 'Styles/StyledElement';
 import { Link } from '@reach/router';
 
 export const Wrapper = styled(Link)`
@@ -8,8 +8,8 @@ export const Wrapper = styled(Link)`
   text-decoration: none;
 `;
 
-export const Card = styled(Element)`
-  border-radius: 5px;
+export const Card = styled.article`
+  ${ElementMixin}
   overflow: hidden;
   font-size: 14px;
 `;
@@ -25,9 +25,9 @@ Card.Body = styled.div`
   min-height: 175px;
 `;
 
-Card.Title = styled.h2`
+// The Card is an Article, therefore the title must be an h1
+Card.Title = styled.h1`
   font-size: 1.25em;
-  font-weight: 800;
   margin: 15px 0;
 `;
 
@@ -39,7 +39,4 @@ Card.List = styled.ul`
 
 Card.Item = styled.li`
   margin-bottom: 5px;
-  & > b {
-    font-weight: 600;
-  }
 `;
