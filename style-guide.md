@@ -23,12 +23,15 @@ The designs were created to the following widths:
 ### Body Copy
 
 - Homepage Items: 14px
-- Detail Page: 16px 
+- Detail Page: 16px
 
 ### Fonts
 
 - Family: [Nunito Sans](https://fonts.google.com/specimen/Nunito+Sans)
-- Weights: 300, 600, 800
+- Weights:
+  - 300: Light
+  - 600: Semi Bold
+  - 800: Extra Bold
 
 ## Icons
 
