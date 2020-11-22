@@ -9,7 +9,7 @@ export const Wrapper = styled(Link)`
 `;
 
 export const Card = styled(Element)`
-  border-radius: 8px;
+  border-radius: 5px;
   overflow: hidden;
   font-size: 14px;
 `;
@@ -20,13 +20,15 @@ Card.Flag = styled.img`
   object-fit: cover;
 `;
 
-Card.Title = styled.h3`
-  margin: 25px 0;
+Card.Body = styled.div`
+  padding: 5px 25px;
+  min-height: 175px;
 `;
 
-Card.Body = styled.div`
-  padding: 0 25px;
-  min-height: 175px;
+Card.Title = styled.h2`
+  font-size: 1.25em;
+  font-weight: 800;
+  margin: 15px 0;
 `;
 
 Card.List = styled.ul`
@@ -36,5 +38,8 @@ Card.List = styled.ul`
 `;
 
 Card.Item = styled.li`
-  margin-bottom: 10px;
+  margin-bottom: 5px;
+  & > b {
+    font-weight: 600;
+  }
 `;

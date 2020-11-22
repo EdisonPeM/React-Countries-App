@@ -31,9 +31,9 @@ const InputMixin = css`
 
   display: block;
   height: 50px;
-  padding: 0 15px;
+
   border: none;
-  border-radius: 8px;
+  border-radius: 5px;
 `;
 
 const inputPadding = '75px';
@@ -41,6 +41,7 @@ export const Input = styled.input`
   ${InputMixin}
 
   width: 100%;
+  padding: 0 15px;
   padding-left: ${inputPadding};
   @media (${generalStyles.breakpoint}) {
     max-width: 480px;
@@ -59,6 +60,7 @@ export const SearchIcon = styled(MdSearch)`
 
 export const Select = styled.select`
   ${InputMixin}
+  padding: 0 25px 0 20px;
 
   min-width: 200px;
   width: 50%;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 
 import { Wrapper, Card } from './CountryCard.styles';
 import { numberFormat } from 'Utils/Formater';
@@ -39,4 +39,4 @@ function CountryCard({
   );
 }
 
-export default CountryCard;
+export default memo(CountryCard);

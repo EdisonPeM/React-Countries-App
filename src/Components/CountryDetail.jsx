@@ -44,8 +44,7 @@ function CountryDetail(props) {
           <b>Top Level Domain:</b> {props.topLevelDomain.join(', ')}
         </li>
         <li>
-          <b>Top Level Domain:</b>{' '}
-          {props.currencies.map(m => m.name).join(', ')}
+          <b>Currencies:</b> {props.currencies.map(m => m.name).join(', ')}
         </li>
         <li>
           <b>Languages:</b> {props.languages.map(l => l.name).join(', ')}
