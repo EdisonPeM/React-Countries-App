@@ -7,7 +7,7 @@ import themes from 'Styles/Themes';
 import IosMoon from 'react-ionicons/lib/IosMoon';
 import IosMoonOutline from 'react-ionicons/lib/IosMoonOutline';
 
-import { Nav, ToTop, ThemeButton } from './Navbar.styles';
+import { Nav, ToTop } from './Navbar.styles';
 
 function Navbar({ changeTheme }) {
   const [showNav] = useHiddenOnScroll();
@@ -15,17 +15,17 @@ function Navbar({ changeTheme }) {
 
   return (
     <Nav show={showNav}>
-      <h3>
+      <Nav.Title>
         <ToTop href="#">Where in the world?</ToTop>
-      </h3>
-      <ThemeButton onClick={changeTheme}>
+      </Nav.Title>
+      <Nav.ThemeButton onClick={changeTheme}>
         {currentTheme === themes.light ? (
           <IosMoonOutline color={currentTheme.color} />
         ) : (
           <IosMoon color={currentTheme.color} />
         )}
         <span>Dark Mode</span>
-      </ThemeButton>
+      </Nav.ThemeButton>
     </Nav>
   );
 }

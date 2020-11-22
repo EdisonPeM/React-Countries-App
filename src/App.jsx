@@ -1,4 +1,4 @@
-import { Router } from '@reach/router';
+import { Router, Redirect } from '@reach/router';
 import { ThemeProvider } from 'styled-components';
 import themes from 'Styles/Themes';
 
@@ -9,6 +9,7 @@ import ThemedStyles from 'Styles/ThemedStyles';
 
 import Navbar from 'Layout/Navbar';
 import ViewPort from 'Layout/ViewPort';
+import Footer from 'Layout/Footer';
 
 import Home from 'Pages/Home';
 import Detail from 'Pages/Detail';
@@ -30,8 +31,10 @@ function App() {
           <Router>
             <Home path="/" />
             <Detail path="/:code" />
+            {/* <Redirect from="*" to="/" default /> */}
           </Router>
         </ViewPort>
+        <Footer />
       </ThemeProvider>
     </>
   );

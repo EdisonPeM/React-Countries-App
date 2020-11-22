@@ -11,11 +11,11 @@ export const Nav = styled.nav`
   justify-content: space-between;
   align-items: center;
 
-  font-size: 12px;
-  padding: 15px ${generalStyles.mobile.paddingXVieport};
+  font-size: 10px;
+  padding: 15px ${generalStyles.mobile.paddingVieport};
   @media (${generalStyles.breakpoint}) {
-    font-size: initial;
-    padding: 15px ${generalStyles.desktop.paddingXVieport};
+    font-size: initial; // 16px
+    padding: 15px ${generalStyles.desktop.paddingVieport};
   }
 
   position: sticky;
@@ -26,7 +26,14 @@ export const Nav = styled.nav`
   transition: top 600ms;
 `;
 
-export const ThemeButton = styled.button`
+Nav.Title = styled.h1`
+  font-size: 1.5em;
+  font-weight: 800;
+`;
+
+Nav.ThemeButton = styled.button`
+  font-size: 1em;
+
   color: inherit;
   background: transparent;
   border: none;

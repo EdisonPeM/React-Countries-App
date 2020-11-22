@@ -15,7 +15,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     margin: 0;
     font-family: 'Nunito Sans', sans-serif;
-    font-weight: 300;
+    font-weight: 300; // light
   }
 
   img {
