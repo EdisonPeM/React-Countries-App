@@ -8,6 +8,11 @@ export const Wrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+
+  margin-bottom: 10px;
+  @media (${generalStyles.breakpoint}) {
+    margin: 0;
+  }
 `;
 
 export const InputGroup = styled.div`
@@ -31,9 +36,6 @@ const InputMixin = css`
 
   display: block;
   height: 50px;
-
-  border: none;
-  border-radius: 5px;
 `;
 
 const inputPadding = '75px';

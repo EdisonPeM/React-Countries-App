@@ -5,6 +5,7 @@ import { ElementMixin } from 'Styles/StyledElement';
 
 export const Nav = styled.nav`
   ${ElementMixin}
+  border-radius: 0;
   height: 80px;
 
   display: flex;

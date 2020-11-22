@@ -3,10 +3,13 @@ import styled from 'styled-components';
 
 const Foot = styled.footer`
   height: 80px;
+  padding: 15px;
 
   display: flex;
   justify-content: center;
   align-items: center;
+
+  text-align: center;
 `;
 
 function Footer() {
