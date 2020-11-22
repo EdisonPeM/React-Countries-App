@@ -18,36 +18,38 @@ function CountryDetail(props) {
         alt={`Flag of ${props.name}`}
         title={`Flag of ${props.name}`}
       />
-      <Country.Info>
+      <Country.Body>
         <Country.Title>{props.name}</Country.Title>
-        <Country.List>
-          <li>
-            <b>Native Name:</b> {props.nativeName}
-          </li>
-          <li>
-            <b>Population:</b> {nF(props.population)}
-          </li>
-          <li>
-            <b>Region:</b> {props.region}
-          </li>
-          <li>
-            <b>Sub Region:</b> {props.subregion}
-          </li>
-          <li>
-            <b>Capital:</b> {props.capital}
-          </li>
-        </Country.List>
-        <Country.List>
-          <li>
-            <b>Top Level Domain:</b> {props.topLevelDomain.join(', ')}
-          </li>
-          <li>
-            <b>Currencies:</b> {props.currencies.map(m => m.name).join(', ')}
-          </li>
-          <li>
-            <b>Languages:</b> {props.languages.map(l => l.name).join(', ')}
-          </li>
-        </Country.List>
+        <Country.Info>
+          <Country.List>
+            <li>
+              <b>Native Name:</b> {props.nativeName}
+            </li>
+            <li>
+              <b>Population:</b> {nF(props.population)}
+            </li>
+            <li>
+              <b>Region:</b> {props.region}
+            </li>
+            <li>
+              <b>Sub Region:</b> {props.subregion}
+            </li>
+            <li>
+              <b>Capital:</b> {props.capital}
+            </li>
+          </Country.List>
+          <Country.List>
+            <li>
+              <b>Top Level Domain:</b> {props.topLevelDomain.join(', ')}
+            </li>
+            <li>
+              <b>Currencies:</b> {props.currencies.map(m => m.name).join(', ')}
+            </li>
+            <li>
+              <b>Languages:</b> {props.languages.map(l => l.name).join(', ')}
+            </li>
+          </Country.List>
+        </Country.Info>
         {props.borders.length > 0 && !loading && !error && (
           <Borders>
             <Borders.Title>Border Countries: </Borders.Title>
@@ -62,7 +64,7 @@ function CountryDetail(props) {
             </Borders.List>
           </Borders>
         )}
-      </Country.Info>
+      </Country.Body>
     </Country>
   );
 }

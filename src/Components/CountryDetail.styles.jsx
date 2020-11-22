@@ -15,8 +15,6 @@ export const Country = styled.article`
   @media (${generalStyles.breakpoint}) {
     grid-template-columns: repeat(auto-fit, 600px);
     justify-content: space-between;
-    // gap: 80px;
-    // gap: 20px;
   }
 `;
 
@@ -31,7 +29,7 @@ Country.Flag = styled.img`
   }
 `;
 
-Country.Info = styled.div`
+Country.Body = styled.div`
   font-size: 14px;
   @media (${generalStyles.breakpoint}) {
     font-size: 16px;
@@ -39,14 +37,31 @@ Country.Info = styled.div`
 `;
 
 Country.Title = styled.h1`
+  @media (${generalStyles.breakpoint}) {
+    font-size: 2em;
+    margin-top: 35px;
+    margin-bottom: 35px;
+  }
   margin-top: 0;
   margin-bottom: 5px;
+`;
+
+Country.Info = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  @media (${generalStyles.breakpoint}) {
+    flex-direction: row;
+  }
 `;
 
 Country.List = styled.ul`
   list-style: none;
   margin: 0;
   padding: 25px 0;
+  @media (${generalStyles.breakpoint}) {
+    padding: 0;
+  }
 
   // Nested Items
   li {
@@ -58,11 +73,21 @@ Country.List = styled.ul`
   }
 `;
 
-export const Borders = styled.section``;
+export const Borders = styled.section`
+  padding-top: 30px;
+  display: flex;
+  flex-direction: column;
+  @media (${generalStyles.breakpoint}) {
+    flex-direction: row;
+  }
+`;
 
 Borders.Title = styled.h2`
+  margin: 0;
   font-size: 1.17em;
   font-weight: 800;
+  min-width: max-content;
+  margin-right: 1rem;
 `;
 
 Borders.List = styled.ul`
@@ -76,13 +101,6 @@ Borders.List = styled.ul`
   // Nested Items
   li {
     margin: 5px;
-
-    &:first-child {
-      margin-left: 0;
-    }
-
-    &:last-child {
-      margin-right: 0;
-    }
+    margin-left: 0;
   }
 `;
