@@ -4,7 +4,7 @@ import useToggle from 'Hooks/useToggle';
 import { Select, ChevronIcon, Option } from './styles';
 
 function FilterSelect({ value, options, setValue }) {
-  const [showOptions, toggleOptions] = useToggle(true);
+  const [showOptions, toggleOptions] = useToggle(false);
 
   const handleClick = opt => {
     if (value.includes(opt)) {

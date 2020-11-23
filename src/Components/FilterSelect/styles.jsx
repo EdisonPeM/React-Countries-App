@@ -51,8 +51,7 @@ export const Option = styled.div`
 
   position: relative;
 
-  // CHANGE AFTER DEPLOY
-  // opacity: 0.5;
+  opacity: 0.5;
   :hover {
     opacity: 1;
   }
@@ -70,6 +69,7 @@ export const Option = styled.div`
         right: 5px;
         transform: translateY(-50%);
 
+        opacity: 0.8;
         border-radius: 50%;
         border: solid;
       }
