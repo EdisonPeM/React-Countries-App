@@ -61,7 +61,8 @@ export const Option = styled.div`
     css`
       opacity: 1;
 
-      ::after {
+      ::after,
+      ::before {
         content: '';
 
         position: absolute;
@@ -69,9 +70,17 @@ export const Option = styled.div`
         right: 5px;
         transform: translateY(-50%);
 
-        opacity: 0.8;
-        border-radius: 50%;
-        border: solid;
+        opacity: 0.5;
+        border: 1px solid;
+        border-left: 8px solid;
+      }
+
+      ::after {
+        transform: rotate(45deg);
+      }
+
+      ::before {
+        transform: rotate(-45deg);
       }
     `}
 `;
