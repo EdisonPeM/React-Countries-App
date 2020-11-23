@@ -33,6 +33,16 @@ export const Country = styled.article`
   }
 `;
 
+export const Background = styled.div`
+  background-color: white;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: -10;
+`;
+
 Country.Flag = styled.img`
   object-fit: cover;
 
@@ -112,11 +122,11 @@ Country.List = styled.ul`
 `;
 
 export const Borders = styled.section`
-  padding-top: 60px;
+  padding-top: 30px;
   display: flex;
   flex-direction: column;
   @media (${generalStyles.breakpoint}) {
-    padding-top: 30px;
+    padding-top: 60px;
     flex-direction: row;
   }
 
@@ -138,6 +148,7 @@ Borders.Title = styled.h2`
   align-items: center;
   font-size: 1em;
   font-weight: 600;
+  margin-bottom: 25px;
 `;
 
 Borders.List = styled.ul`

@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { numberFormat as nF } from 'Utils/Formater';
 import LinkCard from './LinkCard';
 import useCountries from 'Hooks/useCountries';
-import { Country, Borders } from './CountryDetail.styles';
+import { Background, Country, Borders } from './CountryDetail.styles';
 
 function CountryDetail(props) {
   const [borders, loading, error] = useCountries(
@@ -13,6 +13,7 @@ function CountryDetail(props) {
 
   return (
     <Country>
+      <Background />
       <Country.Flag
         src={props.flag}
         alt={`Flag of ${props.name}`}
