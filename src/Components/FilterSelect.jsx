@@ -17,7 +17,7 @@ function FilterSelect({ value, options, setValue }) {
   return (
     <Select>
       <Select.Placeholder onClick={toggleOptions}>
-        <span>Filter By Region</span>
+        <span>Filter by Region</span>
         <ChevronIcon />
       </Select.Placeholder>
       <Select.Options hidden={!showOptions}>

@@ -29,6 +29,7 @@ export const Country = styled.article`
 
   @media (${breakpoints.laptopL}) {
     grid-template-columns: repeat(2, 600px);
+    align-items: start;
   }
 `;
 
@@ -102,7 +103,7 @@ Country.List = styled.ul`
 
   // Nested Items
   li {
-    margin-bottom: 1rem;
+    margin-bottom: 10px;
 
     &:last-child {
       margin-bottom: 0;
@@ -111,10 +112,11 @@ Country.List = styled.ul`
 `;
 
 export const Borders = styled.section`
-  padding-top: 30px;
+  padding-top: 60px;
   display: flex;
   flex-direction: column;
   @media (${generalStyles.breakpoint}) {
+    padding-top: 30px;
     flex-direction: row;
   }
 
@@ -129,10 +131,13 @@ export const Borders = styled.section`
 
 Borders.Title = styled.h2`
   margin: 0;
-  font-size: 1.17em;
-  font-weight: 800;
   min-width: max-content;
   margin-right: 1rem;
+
+  display: flex;
+  align-items: center;
+  font-size: 1em;
+  font-weight: 600;
 `;
 
 Borders.List = styled.ul`
