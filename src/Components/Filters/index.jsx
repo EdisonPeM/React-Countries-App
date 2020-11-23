@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { Wrapper, InputGroup, SearchIcon, Input } from './Filters.styles';
+import FilterSelect from '../FilterSelect';
 
-import FilterSelect from './FilterSelect';
+import { Wrapper, InputGroup, SearchIcon, Input } from './styles';
 
 function Filters({ nameInput, regionInput }) {
   return (
