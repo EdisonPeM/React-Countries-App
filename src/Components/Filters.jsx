@@ -1,12 +1,8 @@
 import React from 'react';
 
-import {
-  Wrapper,
-  InputGroup,
-  SearchIcon,
-  Select,
-  Input,
-} from './Filters.styles';
+import { Wrapper, InputGroup, SearchIcon, Input } from './Filters.styles';
+
+import FilterSelect from './FilterSelect';
 
 function Filters({ nameInput, regionInput }) {
   return (
@@ -16,14 +12,10 @@ function Filters({ nameInput, regionInput }) {
         <SearchIcon />
       </InputGroup>
       <InputGroup>
-        <Select {...regionInput}>
-          <option value="All">Filter by Region</option>
-          <option value="Africa">Africa</option>
-          <option value="Americas">Americas</option>
-          <option value="Asia">Asia</option>
-          <option value="Europe">Europe</option>
-          <option value="Oceania">Oceania</option>
-        </Select>
+        <FilterSelect
+          {...regionInput}
+          options={['Africa', 'Americas', 'Asia', 'Europe', 'Oceania']}
+        />
       </InputGroup>
     </Wrapper>
   );

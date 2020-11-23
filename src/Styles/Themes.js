@@ -13,14 +13,16 @@ const themes = {
     bg: COLORS.VeryLightGray,
     elements: COLORS.White,
     inputText: COLORS.DarkGray,
-    shadow: '0 0 5px #D0D0D0',
+    shadow: '0 0 8px #E0E0E0',
+    shadowColor: '#E0E0E0',
   },
   dark: {
     color: COLORS.White,
     bg: COLORS.VeryDarkBlueBg,
     elements: COLORS.DarkBlue,
     inputText: COLORS.White,
-    shadow: '0 0 5px #191919',
+    shadow: '0 0 8px #1D2A33',
+    shadowColor: '#1D2A33',
   },
 };
 
