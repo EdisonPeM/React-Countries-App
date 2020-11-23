@@ -1,5 +1,6 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { generalStyles, breakpoints } from 'Styles/GlobalStyles';
+import themes from 'Styles/Themes';
 
 export const Country = styled.article`
   padding: 30px 15px;
@@ -34,7 +35,13 @@ export const Country = styled.article`
 `;
 
 export const Background = styled.div`
-  background-color: white;
+  ${({ theme }) =>
+    theme === themes.light &&
+    css`
+      // When the theme is ligth
+      background-color: white;
+    `}
+
   position: fixed;
   top: 0;
   bottom: 0;

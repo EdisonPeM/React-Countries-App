@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import PropTypes from 'prop-types';
 
-import { Wrapper, Card } from './CountryCard.styles';
+import { Wrapper, Card } from './styles';
 import { numberFormat } from 'Utils/Formater';
 
 function CountryCard({ alpha3Code, name, population, region, capital, flag }) {

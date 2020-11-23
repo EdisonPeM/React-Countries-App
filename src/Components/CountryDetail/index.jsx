@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import { numberFormat as nF } from 'Utils/Formater';
-import LinkCard from './LinkCard';
+import LinkCard from '../LinkCard';
 import useCountries from 'Hooks/useCountries';
-import { Background, Country, Borders } from './CountryDetail.styles';
+import { Background, Country, Borders } from './styles';
 
 function CountryDetail(props) {
   const [borders, loading, error] = useCountries(
