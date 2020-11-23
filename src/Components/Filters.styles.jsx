@@ -60,6 +60,7 @@ export const SearchIcon = styled(MdSearch)`
   transform: translate(-50%, -50%);
 `;
 
+// DEPRECATED
 export const Select = styled.select`
   ${InputMixin}
   padding: 0 25px 0 20px;
