@@ -31,6 +31,8 @@ Select.Placeholder = styled.div`
 
 Select.Options = styled.div`
   ${ElementMixin}
+  box-shadow: 0 -2px 10px -3px ${({ theme }) => theme.shadowColor};
+
   ${({ hidden }) =>
     hidden &&
     css`
@@ -48,8 +50,9 @@ export const Option = styled.div`
   padding: 5px;
 
   position: relative;
-  opacity: 0.5;
 
+  // CHANGE AFTER DEPLOY
+  // opacity: 0.5;
   :hover {
     opacity: 1;
   }
@@ -58,6 +61,18 @@ export const Option = styled.div`
     selected &&
     css`
       opacity: 1;
+
+      ::after {
+        content: '';
+
+        position: absolute;
+        top: 50%;
+        right: 5px;
+        transform: translateY(-50%);
+
+        border-radius: 50%;
+        border: solid;
+      }
     `}
 `;
 

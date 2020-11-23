@@ -14,6 +14,7 @@ const themes = {
     elements: COLORS.White,
     inputText: COLORS.DarkGray,
     shadow: '0 0 8px #E0E0E0',
+    shadowColor: '#E0E0E0',
   },
   dark: {
     color: COLORS.White,
@@ -21,6 +22,7 @@ const themes = {
     elements: COLORS.DarkBlue,
     inputText: COLORS.White,
     shadow: '0 0 8px #1D2A33',
+    shadowColor: '#1D2A33',
   },
 };
 
