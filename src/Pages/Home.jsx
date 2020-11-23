@@ -10,7 +10,7 @@ import Country from 'Components/CountryCard';
 import { normalizeText as n } from 'Utils/Formater';
 
 function Home() {
-  const [countries, loading, error] = useCountries(
+  const { data: countries, loading, error } = useCountries(
     'all?fields=alpha3Code;name;capital;population;region;flag'
   );
   const [nameF, setNameF] = useInputControl('');

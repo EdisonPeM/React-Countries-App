@@ -8,7 +8,11 @@ function Filters({ nameInput, regionInput }) {
   return (
     <Wrapper>
       <InputGroup>
-        <Input placeholder="Search for a country..." {...nameInput} />
+        <Input
+          title="Search for a country"
+          placeholder="Search for a country..."
+          {...nameInput}
+        />
         <SearchIcon />
       </InputGroup>
       <InputGroup>

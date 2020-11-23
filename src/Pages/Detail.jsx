@@ -5,7 +5,7 @@ import CountryDetail from 'Components/CountryDetail';
 import ReturnLink from 'Components/ReturnLink';
 
 function Detail({ code }) {
-  const [info, loading, error] = useCountries(`alpha/${code}`);
+  const { data: info, loading, error } = useCountries(`alpha/${code}`);
 
   // Use Effect to go to top when code change
   useLayoutEffect(() => {

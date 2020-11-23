@@ -15,7 +15,7 @@ function FilterSelect({ value, options, setValue }) {
   };
 
   return (
-    <Select>
+    <Select role="listbox" title="Filter by Region">
       <Select.Placeholder onClick={toggleOptions}>
         <span>Filter by Region</span>
         <ChevronIcon />
@@ -26,6 +26,7 @@ function FilterSelect({ value, options, setValue }) {
             key={opt}
             selected={value.includes(opt)}
             onClick={() => handleClick(opt)}
+            role="option"
           >
             {opt}
           </Option>

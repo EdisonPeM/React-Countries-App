@@ -6,7 +6,7 @@ import { numberFormat } from 'Utils/Formater';
 
 function CountryCard({ alpha3Code, name, population, region, capital, flag }) {
   return (
-    <Wrapper to={'/' + alpha3Code}>
+    <Wrapper to={'/' + alpha3Code} title={name}>
       <Card>
         <Card.Flag
           loading="lazy"

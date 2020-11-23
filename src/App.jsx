@@ -29,7 +29,7 @@ function App() {
         <Navbar changeTheme={toggleTheme} />
         <ViewPort>
           <Router>
-            <Home path="/" />
+            <Home path="/" default />
             <Detail path="/:code" />
           </Router>
         </ViewPort>
