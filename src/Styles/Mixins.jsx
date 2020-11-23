@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import { css } from 'styled-components';
 
 export const ElementMixin = css`
   background-color: ${({ theme }) => theme.elements};
@@ -8,8 +8,7 @@ export const ElementMixin = css`
   border-radius: 5px;
 `;
 
-const Element = styled.div`
-  ${ElementMixin}
+export const IconMixin = css`
+  color: ${({ theme }) => theme.color};
+  fill: ${({ theme }) => theme.color};
 `;
-
-export default Element;

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { ElementMixin } from 'Styles/StyledElement';
+import { ElementMixin } from 'Styles/Mixins';
 import { Link } from '@reach/router';
 
 export const Wrapper = styled(Link)`

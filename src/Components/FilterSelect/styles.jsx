@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
 import { generalStyles } from 'Styles/GlobalStyles';
-import { ElementMixin } from 'Styles/StyledElement';
+import { IconMixin, ElementMixin } from 'Styles/Mixins';
 
 import IosArrowDown from 'react-ionicons/lib/IosArrowDown';
 
@@ -77,6 +77,5 @@ export const Option = styled.div`
 `;
 
 export const ChevronIcon = styled(IosArrowDown)`
-  color: ${({ theme }) => theme.color};
-  fill: ${({ theme }) => theme.color};
+  ${IconMixin}
 `;
