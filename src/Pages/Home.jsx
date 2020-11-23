@@ -19,7 +19,6 @@ function Home() {
   const nameFilter = c => n(c.name).includes(n(nameF));
   const regionFilter = c => regionF.length === 0 || regionF.includes(c.region);
 
-  if (loading) return <div>Loading...</div>;
   if (error) return <div>Error With Connection</div>;
   return (
     <>
@@ -33,15 +32,18 @@ function Home() {
           setValue: setRegionF,
         }}
       />
-
-      <CardList>
-        {countries
-          .filter(nameFilter)
-          .filter(regionFilter)
-          .map(c => (
-            <Country key={c.alpha3Code} {...c} />
-          ))}
-      </CardList>
+      {loading ? (
+        <div>Loading...</div>
+      ) : (
+        <CardList>
+          {countries
+            .filter(nameFilter)
+            .filter(regionFilter)
+            .map(c => (
+              <Country key={c.alpha3Code} {...c} />
+            ))}
+        </CardList>
+      )}
     </>
   );
 }
