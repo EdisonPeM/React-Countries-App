@@ -8,6 +8,7 @@ import CardList from 'Components/CardList';
 import Country from 'Components/CountryCard';
 
 import PlaceHolder from 'Components/Placeholders/Home';
+import Error from 'Components/Errors/home';
 
 import { normalizeText as n } from 'Utils/Formater';
 
@@ -21,7 +22,7 @@ function Home() {
   const nameFilter = c => n(c.name).includes(n(nameF));
   const regionFilter = c => regionF.length === 0 || regionF.includes(c.region);
 
-  if (error) return <div>Error With Connection</div>;
+  if (error) return <Error />;
   return (
     <>
       <Filters
@@ -37,6 +38,9 @@ function Home() {
       {loading ? (
         <PlaceHolder />
       ) : (
+        /**  error ? (
+        <div>Error With Connection</div>
+      ) : */
         <CardList>
           {countries
             .filter(nameFilter)
