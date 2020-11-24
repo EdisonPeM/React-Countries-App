@@ -15,22 +15,25 @@ import Home from 'Pages/Home';
 import Detail from 'Pages/Detail';
 import { useEffect } from 'react';
 
+const mq = window.matchMedia('(prefers-color-scheme: dark)');
+
 function App() {
-  const [appTheme, setAppTheme] = useLocalStorage('light', 'theme');
+  const [appTheme, setAppTheme] = useLocalStorage(
+    mq.matches ? 'dark' : 'light',
+    'theme'
+  );
 
   const toggleTheme = () => {
     setAppTheme(appTheme === 'light' ? 'dark' : 'light');
   };
 
   useEffect(() => {
-    const mq = window.matchMedia('(prefers-color-scheme: dark)');
     const changeMedia = () => {
-      setAppTheme(mq.matches === 'light' ? 'dark' : 'light');
+      setAppTheme(mq.matches ? 'dark' : 'light');
     };
+
     mq.addListener(changeMedia);
-    return () => {
-      mq.removeListener(changeMedia);
-    };
+    return () => mq.removeListener(changeMedia);
   }, [setAppTheme]);
 
   return (
