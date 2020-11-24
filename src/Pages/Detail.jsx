@@ -5,6 +5,7 @@ import CountryDetail from 'Components/CountryDetail';
 import ReturnLink from 'Components/ReturnLink';
 
 import PlaceHolder from 'Components/Placeholders/Detail';
+import Error from 'Components/Errors/Detail';
 
 function Detail({ code }) {
   const { data: info, loading, error } = useCountries(`alpha/${code}`);
@@ -20,7 +21,7 @@ function Detail({ code }) {
       {loading ? (
         <PlaceHolder />
       ) : error ? (
-        <p>Country does not exist</p>
+        <Error />
       ) : (
         <CountryDetail {...info} />
       )}
