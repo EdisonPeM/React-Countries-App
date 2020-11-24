@@ -3,6 +3,7 @@
 class HTTPClient {
   constructor(URLBase) {
     this.url = URLBase;
+    this.fetchController = null;
   }
 
   static sendRequest(request) {
@@ -10,6 +11,7 @@ class HTTPClient {
       method: request.method,
       headers: request.headers,
       body: JSON.stringify(request.data),
+      signal: request.signal,
     }).then(response => {
       if (!response.ok)
         throw new Error('Request response with status ' + response.status);
@@ -19,10 +21,20 @@ class HTTPClient {
     });
   }
 
+  abort() {
+    if (this.fetchController !== null) this.fetchController.abort();
+  }
+
+  hasAborted() {
+    return this.fetchController.signal.aborted;
+  }
+
   get(endpoint) {
+    this.fetchController = new AbortController();
     return HTTPClient.sendRequest({
       url: `${this.url}${endpoint}`,
       method: 'GET',
+      signal: this.fetchController.signal,
     });
   }
 
