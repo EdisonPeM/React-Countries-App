@@ -4,6 +4,8 @@ import useCountries from 'Hooks/useCountries';
 import CountryDetail from 'Components/CountryDetail';
 import ReturnLink from 'Components/ReturnLink';
 
+import PlaceHolder from 'Components/Placeholders/Detail';
+
 function Detail({ code }) {
   const { data: info, loading, error } = useCountries(`alpha/${code}`);
 
@@ -16,7 +18,7 @@ function Detail({ code }) {
     <>
       <ReturnLink />
       {loading ? (
-        <p>Loading</p>
+        <PlaceHolder />
       ) : error ? (
         <p>Country does not exist</p>
       ) : (

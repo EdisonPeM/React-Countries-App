@@ -7,6 +7,8 @@ import Filters from 'Components/Filters';
 import CardList from 'Components/CardList';
 import Country from 'Components/CountryCard';
 
+import PlaceHolder from 'Components/Placeholders/Home';
+
 import { normalizeText as n } from 'Utils/Formater';
 
 function Home() {
@@ -33,7 +35,7 @@ function Home() {
         }}
       />
       {loading ? (
-        <div>Loading...</div>
+        <PlaceHolder />
       ) : (
         <CardList>
           {countries
