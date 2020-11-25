@@ -14,7 +14,7 @@ const GlobalFonts = css`
     font-family: 'Nunito Sans';
     font-weight: 300;
     font-style: normal;
-    src: url(${NunitoSansLightWoff}) format('woff2'),
+    src: local('Nunito Sans'), url(${NunitoSansLightWoff}) format('woff2'),
       url(${NunitoSansLightTTF}) format('truetype');
   }
 
@@ -22,7 +22,7 @@ const GlobalFonts = css`
     font-family: 'Nunito Sans';
     font-weight: 600;
     font-style: normal;
-    src: url(${NunitoSansSemiBoldWoff}) format('woff2'),
+    src: local('Nunito Sans'), url(${NunitoSansSemiBoldWoff}) format('woff2'),
       url(${NunitoSansSemiBoldTTF}) format('truetype');
   }
 
@@ -30,7 +30,7 @@ const GlobalFonts = css`
     font-family: 'Nunito Sans';
     font-weight: 800;
     font-style: normal;
-    src: url(${NunitoSansExtraBoldWoff}) format('woff2'),
+    src: local('Nunito Sans'), url(${NunitoSansExtraBoldWoff}) format('woff2'),
       url(${NunitoSansExtraBoldTTF}) format('truetype');
   } ;
 `;
