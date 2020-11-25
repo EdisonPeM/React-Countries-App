@@ -5,6 +5,7 @@ import Link from 'Components/LinkCard';
 
 import IosArrowRoundBack from 'react-ionicons/lib/IosArrowRoundBack';
 import { breakpoints } from 'Styles/GlobalStyles';
+import { IconMixin } from 'Styles/Mixins';
 
 const LinkCard = styled(Link)`
   position: relative;
@@ -26,8 +27,7 @@ const LinkCard = styled(Link)`
 `;
 
 const BackIcon = styled(IosArrowRoundBack)`
-  fill: ${({ theme }) => theme.color};
-  color: ${({ theme }) => theme.color};
+  ${IconMixin}
 
   width: 30px;
   height: 30px;

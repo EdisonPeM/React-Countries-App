@@ -7,7 +7,7 @@ import useCountries from 'Hooks/useCountries';
 import { Background, Country, Borders } from './styles';
 
 function CountryDetail(props) {
-  const [borders, loading, error] = useCountries(
+  const { data: borders, loading, error } = useCountries(
     props.borders.length > 0 ? `alpha?codes=${props.borders.join(';')}` : ''
   );
 

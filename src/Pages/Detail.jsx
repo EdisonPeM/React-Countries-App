@@ -1,24 +1,34 @@
 import React, { useLayoutEffect } from 'react';
 import useCountries from 'Hooks/useCountries';
 
+import { navigate } from '@reach/router';
+
 import CountryDetail from 'Components/CountryDetail';
 import ReturnLink from 'Components/ReturnLink';
 
+import PlaceHolder from 'Components/Placeholders/Detail';
+import Error from 'Components/Errors/Detail';
+
 function Detail({ code }) {
-  const [info, loading, error] = useCountries(`alpha/${code}`);
+  const { data: info, loading, error } = useCountries(`alpha/${code}`);
 
   // Use Effect to go to top when code change
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
   }, [code]);
 
+  if (error)
+    setTimeout(() => {
+      navigate('/');
+    }, 2000);
+
   return (
     <>
       <ReturnLink />
       {loading ? (
-        <p>Loading</p>
+        <PlaceHolder />
       ) : error ? (
-        <p>Country does not exist</p>
+        <Error />
       ) : (
         <CountryDetail {...info} />
       )}

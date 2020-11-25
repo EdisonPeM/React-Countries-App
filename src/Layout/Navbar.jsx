@@ -24,7 +24,10 @@ function Navbar({ changeTheme }) {
         ) : (
           <IosMoon color={currentTheme.color} />
         )}
-        <span>Dark Mode</span>
+        <span>
+          {currentTheme === themes.light ? 'Dark ' : 'Light '}
+          Mode
+        </span>
       </Nav.ThemeButton>
     </Nav>
   );

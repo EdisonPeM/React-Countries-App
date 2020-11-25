@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
 import MdSearch from 'react-ionicons/lib/MdSearch';
-import { ElementMixin } from 'Styles/StyledElement';
+import { IconMixin, ElementMixin } from 'Styles/Mixins';
 import { generalStyles } from 'Styles/GlobalStyles';
 
 export const Wrapper = styled.div`
@@ -29,9 +29,9 @@ export const InputGroup = styled.div`
 const InputMixin = css`
   ${ElementMixin}
 
-  color: ${({ theme }) => theme.inputText};
+  color: ${({ theme }) => theme.color};
   &::placeholder {
-    color: ${({ theme }) => theme.inputText};
+    color: ${({ theme }) => theme.color};
   }
 
   display: block;
@@ -52,8 +52,7 @@ export const Input = styled.input`
 
 export const SearchIcon = styled(MdSearch)`
   // The fill property is for filling in the color of a SVG.
-  fill: ${({ theme }) => theme.inputText};
-  color: ${({ theme }) => theme.inputText};
+  ${IconMixin}
   position: absolute;
   top: 50%;
   left: calc(${inputPadding} / 2);

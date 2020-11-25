@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import useCountries from 'Hooks/useCountries';
 import useInputControl from 'Hooks/useInputControl';
@@ -7,10 +7,17 @@ import Filters from 'Components/Filters';
 import CardList from 'Components/CardList';
 import Country from 'Components/CountryCard';
 
+import LazyLoad, { forceCheck } from 'react-lazyload';
+
+import PlaceHolder from 'Components/Placeholders/Home';
+import CardPlaceholder from 'Components/Placeholders/Card';
+
+import Error from 'Components/Errors/home';
+
 import { normalizeText as n } from 'Utils/Formater';
 
 function Home() {
-  const [countries, loading, error] = useCountries(
+  const { data: countries, loading, error } = useCountries(
     'all?fields=alpha3Code;name;capital;population;region;flag'
   );
   const [nameF, setNameF] = useInputControl('');
@@ -19,7 +26,9 @@ function Home() {
   const nameFilter = c => n(c.name).includes(n(nameF));
   const regionFilter = c => regionF.length === 0 || regionF.includes(c.region);
 
-  if (error) return <div>Error With Connection</div>;
+  useEffect(forceCheck);
+
+  if (error) return <Error />;
   return (
     <>
       <Filters
@@ -33,14 +42,20 @@ function Home() {
         }}
       />
       {loading ? (
-        <div>Loading...</div>
+        <PlaceHolder />
       ) : (
         <CardList>
           {countries
             .filter(nameFilter)
             .filter(regionFilter)
             .map(c => (
-              <Country key={c.alpha3Code} {...c} />
+              <LazyLoad
+                height={350}
+                key={c.alpha3Code}
+                placeholder={<CardPlaceholder />}
+              >
+                <Country {...c} />
+              </LazyLoad>
             ))}
         </CardList>
       )}

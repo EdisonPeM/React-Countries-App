@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 import { generalStyles } from 'Styles/GlobalStyles';
-import { ElementMixin } from 'Styles/StyledElement';
+import { ElementMixin } from 'Styles/Mixins';
 
 export const Nav = styled.nav`
   ${ElementMixin}

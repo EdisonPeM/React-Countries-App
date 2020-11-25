@@ -13,13 +13,28 @@ import Footer from 'Layout/Footer';
 
 import Home from 'Pages/Home';
 import Detail from 'Pages/Detail';
+import { useEffect } from 'react';
+
+const mq = window.matchMedia('(prefers-color-scheme: dark)');
 
 function App() {
-  const [appTheme, setAppTheme] = useLocalStorage('light', 'theme');
+  const [appTheme, setAppTheme] = useLocalStorage(
+    mq.matches ? 'dark' : 'light',
+    'theme'
+  );
 
   const toggleTheme = () => {
     setAppTheme(appTheme === 'light' ? 'dark' : 'light');
   };
+
+  useEffect(() => {
+    const changeMedia = () => {
+      setAppTheme(mq.matches ? 'dark' : 'light');
+    };
+
+    mq.addListener(changeMedia);
+    return () => mq.removeListener(changeMedia);
+  }, [setAppTheme]);
 
   return (
     <>
@@ -29,7 +44,7 @@ function App() {
         <Navbar changeTheme={toggleTheme} />
         <ViewPort>
           <Router>
-            <Home path="/" />
+            <Home path="/" default />
             <Detail path="/:code" />
           </Router>
         </ViewPort>

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Link } from '@reach/router';
-import { ElementMixin } from 'Styles/StyledElement';
+import { ElementMixin } from 'Styles/Mixins';
 
 const LinkCard = styled(Link)`
   ${ElementMixin}
