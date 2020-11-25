@@ -7,7 +7,7 @@ import Loader from './index';
 function CardPlaceholder() {
   return (
     <Card>
-      <Card.Flag loading="lazy" as="div">
+      <Card.Flag as="div">
         <Loader>
           <rect x="0" y="0" rx="5" ry="5" width="100%" height="100%" />
         </Loader>
