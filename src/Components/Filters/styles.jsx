@@ -29,6 +29,7 @@ export const InputGroup = styled.div`
 const InputMixin = css`
   ${ElementMixin}
 
+  color: ${({ theme }) => theme.color};
   &::placeholder {
     color: ${({ theme }) => theme.color};
   }
