@@ -1,6 +1,8 @@
 import React, { useLayoutEffect } from 'react';
 import useCountries from 'Hooks/useCountries';
 
+import { navigate } from '@reach/router';
+
 import CountryDetail from 'Components/CountryDetail';
 import ReturnLink from 'Components/ReturnLink';
 
@@ -14,6 +16,11 @@ function Detail({ code }) {
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
   }, [code]);
+
+  if (error)
+    setTimeout(() => {
+      navigate('/');
+    }, 2000);
 
   return (
     <>

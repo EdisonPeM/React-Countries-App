@@ -20,7 +20,6 @@ const SVG = styled.svg`
 `;
 
 function Detail() {
-  console.log(ImgError);
   return (
     <Country>
       <Country.Flag as="div">
