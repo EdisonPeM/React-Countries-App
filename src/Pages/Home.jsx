@@ -37,7 +37,14 @@ function Home() {
       {loading ? (
         <PlaceHolder />
       ) : (
-        <CardList items={countries.filter(nameFilter).filter(regionFilter)} />
+        <CardList rowHeight={335}>
+          {countries
+            .filter(nameFilter)
+            .filter(regionFilter)
+            .map(c => (
+              <Country key={c.alpha3Code} {...c} />
+            ))}
+        </CardList>
       )}
     </>
   );

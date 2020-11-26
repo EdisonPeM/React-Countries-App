@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { Router } from '@reach/router';
 import { ThemeProvider } from 'styled-components';
 import themes from 'Styles/Themes';
@@ -13,7 +14,6 @@ import Footer from 'Layout/Footer';
 
 import Home from 'Pages/Home';
 import Detail from 'Pages/Detail';
-import { useEffect } from 'react';
 
 const mq = window.matchMedia('(prefers-color-scheme: dark)');
 

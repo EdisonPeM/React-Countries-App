@@ -16,6 +16,7 @@ const GlobalFonts = css`
     font-style: normal;
     src: local('Nunito Sans'), url(${NunitoSansLightWoff}) format('woff2'),
       url(${NunitoSansLightTTF}) format('truetype');
+    font-display: swap;
   }
 
   @font-face {
@@ -24,6 +25,7 @@ const GlobalFonts = css`
     font-style: normal;
     src: local('Nunito Sans'), url(${NunitoSansSemiBoldWoff}) format('woff2'),
       url(${NunitoSansSemiBoldTTF}) format('truetype');
+    font-display: swap;
   }
 
   @font-face {
@@ -32,6 +34,7 @@ const GlobalFonts = css`
     font-style: normal;
     src: local('Nunito Sans'), url(${NunitoSansExtraBoldWoff}) format('woff2'),
       url(${NunitoSansExtraBoldTTF}) format('truetype');
+    font-display: swap;
   } ;
 `;
 
