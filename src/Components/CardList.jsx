@@ -10,7 +10,7 @@ const List = styled(VirtualScroll)`
   gap: 70px;
 `;
 
-const DATA_LENGTH = 12;
+const DATA_LENGTH = 6;
 
 function CardList({ children, rowHeight = 'auto' }) {
   const [dataLimit, setDataLimit] = useState(DATA_LENGTH);

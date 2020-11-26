@@ -22,7 +22,7 @@ Card.Flag = styled.img`
 
 Card.Body = styled.div`
   padding: 5px 25px;
-  min-height: 175px;
+  height: 175px;
 `;
 
 // The Card is an Article, therefore the title must be an h1
