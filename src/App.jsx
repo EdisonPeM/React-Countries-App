@@ -13,7 +13,10 @@ import ViewPort from 'Layout/ViewPort';
 import Footer from 'Layout/Footer';
 
 import Home from 'Pages/Home';
-import Detail from 'Pages/Detail';
+// import Detail from 'Pages/Detail';
+
+import loadable from '@loadable/component';
+const Detail = loadable(() => import('Pages/Detail'));
 
 const mq = window.matchMedia('(prefers-color-scheme: dark)');
 
