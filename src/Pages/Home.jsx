@@ -1,4 +1,4 @@
-import React, { useState, lazy, Suspense } from 'react';
+import React, { useState, lazy, Suspense, useMemo } from 'react';
 
 import useCountries from 'Hooks/useCountries';
 import useInputControl from 'Hooks/useInputControl';
@@ -22,12 +22,25 @@ function Home() {
   const { data: countries, loading, error } = useCountries(
     'all?fields=alpha3Code;name;capital;population;region;flag'
   );
+  const [regionsF, setRegionsF] = useState([]);
   const [nameF, setNameF] = useInputControl('');
-  const [regionF, setRegionF] = useState([]);
 
-  const nameFilter = c => n(c.name).includes(n(nameF));
-  const regionFilter = c => regionF.length === 0 || regionF.includes(c.region);
+  // Calculate Filters
+  // useMemo se utiliza para "recordar" **valores** calculados
+  // Se debe usar cuando el calculo es costoso
+  const countriesPerRegion = useMemo(() => {
+    if (regionsF.length === 0) return countries;
+    return countries.filter(c => regionsF.includes(c.region));
+  }, [countries, regionsF]);
 
+  const filteredCountries = useMemo(() => {
+    if (nameF === '') return countriesPerRegion;
+    return countriesPerRegion.filter(
+      c => n(c.name).includes(n(nameF)) || n(c.capital).includes(n(nameF))
+    );
+  }, [countriesPerRegion, nameF]);
+
+  // Render Section
   if (error)
     return (
       <Suspense>
@@ -43,20 +56,18 @@ function Home() {
           onChange: setNameF,
         }}
         regionInput={{
-          value: regionF,
-          setValue: setRegionF,
+          value: regionsF,
+          setValue: setRegionsF,
         }}
       />
+
       {loading ? (
         <PlaceHolder />
       ) : (
         <CardList rowHeight={335}>
-          {countries
-            .filter(nameFilter)
-            .filter(regionFilter)
-            .map(c => (
-              <Country key={c.alpha3Code} {...c} />
-            ))}
+          {filteredCountries.map(c => (
+            <Country key={c.alpha3Code} {...c} />
+          ))}
         </CardList>
       )}
     </>
