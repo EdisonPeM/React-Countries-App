@@ -43,7 +43,7 @@ function Home() {
   // Render Section
   if (error)
     return (
-      <Suspense>
+      <Suspense fallback={<div>Error With Connection</div>}>
         <Error />;
       </Suspense>
     );

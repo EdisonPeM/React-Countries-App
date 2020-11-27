@@ -33,7 +33,7 @@ function Detail({ code }) {
       {loading ? (
         <PlaceHolder />
       ) : error ? (
-        <Suspense>
+        <Suspense fallback={<PlaceHolder />}>
           <Error />
         </Suspense>
       ) : (
