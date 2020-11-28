@@ -1,7 +1,8 @@
-import React, { useState, lazy, Suspense, useMemo } from 'react';
+import React, { lazy, Suspense, useMemo, useLayoutEffect } from 'react';
 
 import useCountries from 'Hooks/useCountries';
 import useInputControl from 'Hooks/useInputControl';
+import useSessionStorage from 'Hooks/useSessionStorage';
 
 import Filters from 'Components/Filters';
 
@@ -22,8 +23,12 @@ function Home() {
   const { data: countries, loading, error } = useCountries(
     'all?fields=alpha3Code;name;capital;population;region;flag'
   );
-  const [regionsF, setRegionsF] = useState([]);
+  const [regionsF, setRegionsF] = useSessionStorage([], 'filters');
   const [nameF, setNameF] = useInputControl('');
+
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  });
 
   // Calculate Filters
   // useMemo se utiliza para "recordar" **valores** calculados
