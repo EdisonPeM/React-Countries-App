@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import { Router } from '@reach/router';
 import { ThemeProvider } from 'styled-components';
 import themes from 'Styles/Themes';
 
@@ -12,6 +11,7 @@ import Navbar from 'Layout/Navbar';
 import ViewPort from 'Layout/ViewPort';
 import Footer from 'Layout/Footer';
 
+// import { Router } from '@reach/router';
 import RouterSlide from 'Components/RouterSlide';
 
 import Home from 'Pages/Home';
