@@ -49,7 +49,7 @@ function Home() {
   if (error)
     return (
       <Suspense fallback={<div>Error With Connection</div>}>
-        <Error />;
+        <Error />
       </Suspense>
     );
 
