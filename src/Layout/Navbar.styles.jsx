@@ -48,7 +48,9 @@ Nav.ThemeButton = styled.button`
   }
 `;
 
-export const ToTop = styled.a`
+export const ToTop = styled.a.attrs(() => ({
+  href: '#',
+}))`
   color: inherit;
   text-decoration: none;
 `;
