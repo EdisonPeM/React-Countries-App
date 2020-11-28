@@ -12,6 +12,8 @@ import Navbar from 'Layout/Navbar';
 import ViewPort from 'Layout/ViewPort';
 import Footer from 'Layout/Footer';
 
+import RouterSlide from 'Components/RouterSlide';
+
 import Home from 'Pages/Home';
 // import Detail from 'Pages/Detail';
 
@@ -46,10 +48,10 @@ function App() {
         <ThemedStyles />
         <Navbar changeTheme={toggleTheme} />
         <ViewPort>
-          <Router>
+          <RouterSlide>
             <Home path="/" default />
             <Detail path="/:code" />
-          </Router>
+          </RouterSlide>
         </ViewPort>
         <Footer />
       </ThemeProvider>
