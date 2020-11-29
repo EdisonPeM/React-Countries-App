@@ -16,13 +16,6 @@ function CountryDetail(props) {
     <>
       <Helmet>
         <title>React Countries App | {props.name}</title>
-        <meta property="og:title" content={props.name} />
-        <meta property="og:type" content="website" />
-        <meta
-          property="og:url"
-          content={`${window.location.hostname}/${props.alpha3Code}`}
-        />
-        <meta property="og:image" content={props.flag} />
       </Helmet>
       <Country>
         <Background />

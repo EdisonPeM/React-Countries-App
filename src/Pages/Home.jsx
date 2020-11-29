@@ -58,13 +58,6 @@ function Home() {
     <>
       <Helmet>
         <title>React Countries App</title>
-        <meta property="og:title" content="React Countries App" />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content={window.location.hostname} />
-        <meta
-          property="og:image"
-          content={`${window.location.hostname}/favicon-32x32.png`}
-        />
       </Helmet>
       <Filters
         nameInput={{
