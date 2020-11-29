@@ -4,7 +4,7 @@ import themes from 'Styles/Themes';
 
 import useLocalStorage from 'Hooks/useLocalStorage';
 
-import GlobalStyles from 'Components/RouterFade/node_modules/Styles/GlobalStyles';
+import GlobalStyles from 'Styles/GlobalStyles';
 import ThemedStyles from 'Styles/ThemedStyles';
 
 import Navbar from 'Layout/Navbar';
@@ -18,6 +18,7 @@ import Home from 'Pages/Home';
 // import Detail from 'Pages/Detail';
 
 import loadable from '@loadable/component';
+import { Helmet } from 'react-helmet';
 const Detail = loadable(() => import('Pages/Detail'));
 
 const mq = window.matchMedia('(prefers-color-scheme: dark)');
@@ -43,6 +44,9 @@ function App() {
 
   return (
     <>
+      <Helmet>
+        <meta name="theme-color" content={themes[appTheme].bg} />
+      </Helmet>
       <GlobalStyles />
       <ThemeProvider theme={themes[appTheme]}>
         <ThemedStyles />

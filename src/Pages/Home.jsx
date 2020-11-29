@@ -15,6 +15,7 @@ import PlaceHolder from 'Components/Placeholders/Home';
 import { normalizeText as n } from 'Utils/Formater';
 
 import loadable from '@loadable/component';
+import { Helmet } from 'react-helmet';
 const Country = loadable(() => import('Components/CountryCard'));
 const CardList = loadable(() => import('Components/CardList'));
 const Error = lazy(() => import('Components/Errors/home'));
@@ -55,6 +56,16 @@ function Home() {
 
   return (
     <>
+      <Helmet>
+        <title>React Countries App</title>
+        <meta property="og:title" content="React Countries App" />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={window.location.hostname} />
+        <meta
+          property="og:image"
+          content={`${window.location.hostname}/favicon-32x32.png`}
+        />
+      </Helmet>
       <Filters
         nameInput={{
           value: nameF,
