@@ -4,7 +4,7 @@ import themes from 'Styles/Themes';
 
 import useLocalStorage from 'Hooks/useLocalStorage';
 
-import GlobalStyles from 'Styles/GlobalStyles';
+import GlobalStyles from 'Components/RouterFade/node_modules/Styles/GlobalStyles';
 import ThemedStyles from 'Styles/ThemedStyles';
 
 import Navbar from 'Layout/Navbar';
@@ -12,7 +12,7 @@ import ViewPort from 'Layout/ViewPort';
 import Footer from 'Layout/Footer';
 
 // import { Router } from '@reach/router';
-import RouterSlide from 'Components/RouterSlide';
+import RouterFade from 'Components/RouterFade';
 
 import Home from 'Pages/Home';
 // import Detail from 'Pages/Detail';
@@ -48,10 +48,10 @@ function App() {
         <ThemedStyles />
         <Navbar changeTheme={toggleTheme} />
         <ViewPort>
-          <RouterSlide>
+          <RouterFade>
             <Home path="/" default />
             <Detail path="/:code" />
-          </RouterSlide>
+          </RouterFade>
         </ViewPort>
         <Footer />
       </ThemeProvider>
