@@ -1,6 +1,7 @@
 {
-  "short_name": "Countries App",
   "name": "Rest Countries App",
+  "short_name": "Countries App",
+  "description": "Frontendmentor Challenge - Rest Countries App With color Theme Switcher",
   "icons": [
     {
       "src": "favicon-32x32.png",
