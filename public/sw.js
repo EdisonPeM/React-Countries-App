@@ -15,6 +15,19 @@ async function precache() {
   return cache.addAll(contentToCache);
 }
 
+self.addEventListener('activate', e => {
+  e.waitUntil(deleteUnusedCache());
+});
+
+async function deleteUnusedCache() {
+  const keyList = await caches.keys();
+  const Promises = keyList
+    .filter(key => key === CACHE_NAME)
+    .map(key => caches.delete(key));
+
+  return Promise.all(Promises);
+}
+
 // Fetching content using Service Worker
 self.addEventListener('fetch', function (event) {
   const { request } = event;
