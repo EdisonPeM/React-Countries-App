@@ -20,6 +20,12 @@ Card.Flag = styled.img`
   object-fit: cover;
 `;
 
+Card.Flag.PlaceHolder = styled.div`
+  width: 100%;
+  height: 160px;
+  background-color: ${({ theme }) => theme.shadowColor};
+`;
+
 Card.Body = styled.div`
   padding: 5px 25px;
   height: 175px;
