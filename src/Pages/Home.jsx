@@ -15,7 +15,7 @@ import PlaceHolder from 'Components/Placeholders/Home';
 import { normalizeText as n } from 'Utils/Formater';
 
 import loadable from '@loadable/component';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 const Country = loadable(() => import('Components/CountryCard'));
 const CardList = loadable(() => import('Components/CardList'));
 const Error = lazy(() => import('Components/Errors/home'));

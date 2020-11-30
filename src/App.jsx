@@ -18,7 +18,7 @@ import Home from 'Pages/Home';
 // import Detail from 'Pages/Detail';
 
 import loadable from '@loadable/component';
-import { Helmet } from 'react-helmet';
+import { Helmet } from 'react-helmet-async';
 const Detail = loadable(() => import('Pages/Detail'));
 
 const mq = window.matchMedia('(prefers-color-scheme: dark)');
