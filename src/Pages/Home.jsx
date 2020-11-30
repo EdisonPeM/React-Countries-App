@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, useMemo, useLayoutEffect } from 'react';
+import React, { lazy, Suspense, useMemo, useEffect } from 'react';
 
 import useCountries from 'Hooks/useCountries';
 import useInputControl from 'Hooks/useInputControl';
@@ -18,7 +18,7 @@ import loadable from '@loadable/component';
 import { Helmet } from 'react-helmet-async';
 const Country = loadable(() => import('Components/CountryCard'));
 const CardList = loadable(() => import('Components/CardList'));
-const Error = lazy(() => import('Components/Errors/home'));
+const Error = lazy(() => import('Components/Errors/Home'));
 
 function Home() {
   const { data: countries, loading, error } = useCountries(
@@ -27,9 +27,9 @@ function Home() {
   const [regionsF, setRegionsF] = useSessionStorage([], 'filters');
   const [nameF, setNameF] = useInputControl('');
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     window.scrollTo(0, 0);
-  });
+  }, []);
 
   // Calculate Filters
   // useMemo se utiliza para "recordar" **valores** calculados
