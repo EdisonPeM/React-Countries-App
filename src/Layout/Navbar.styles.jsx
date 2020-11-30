@@ -12,7 +12,7 @@ export const Nav = styled.nav`
   justify-content: space-between;
   align-items: center;
 
-  font-size: 10px;
+  font-size: 12px;
   padding: 15px ${generalStyles.mobile.paddingVieport};
   @media (${generalStyles.breakpoint}) {
     font-size: initial; // 16px

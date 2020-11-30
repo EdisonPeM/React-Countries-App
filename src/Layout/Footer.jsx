@@ -12,7 +12,7 @@ const Foot = styled.footer`
 
   text-align: center;
 
-  font-size: 10px;
+  font-size: 12px;
   @media (${generalStyles.breakpoint}) {
     font-size: initial; // 16px
   }
@@ -39,24 +39,22 @@ function Footer() {
           Edison Peñuela.
         </a>
         <br />
-        <small>
-          <span>Icon de </span>
-          <a
-            href="https://pixabay.com/es/users/openclipart-vectors-30363/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=153534"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            OpenClipart-Vectors
-          </a>
-          <span> en </span>
-          <a
-            href="https://pixabay.com/es/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=153534"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Pixabay
-          </a>
-        </small>
+        <span>Icon de </span>
+        <a
+          href="https://pixabay.com/es/users/openclipart-vectors-30363/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=153534"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          OpenClipart-Vectors
+        </a>
+        <span> en </span>
+        <a
+          href="https://pixabay.com/es/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=153534"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Pixabay
+        </a>
       </p>
     </Foot>
   );
