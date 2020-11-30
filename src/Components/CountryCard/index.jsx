@@ -8,11 +8,13 @@ function CountryCard({ alpha3Code, name, population, region, capital, flag }) {
   return (
     <Wrapper to={'/' + alpha3Code} title={name}>
       <Card>
-        <Card.Flag
-          src={flag}
-          alt={`Flag of ${name}`}
-          title={`Flag of ${name}`}
-        />
+        <Card.Flag.PlaceHolder>
+          <Card.Flag
+            src={flag}
+            alt={`Flag of ${name}`}
+            title={`Flag of ${name}`}
+          />
+        </Card.Flag.PlaceHolder>
         <Card.Body>
           <Card.Title>{name}</Card.Title>
           <Card.List>

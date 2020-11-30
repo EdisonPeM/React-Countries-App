@@ -16,7 +16,6 @@ class HTTPClient {
       if (!response.ok)
         throw new Error('Request response with status ' + response.status);
 
-      // console.log(response);
       return response.json();
     });
   }

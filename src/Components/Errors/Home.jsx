@@ -62,7 +62,7 @@ function HomeError() {
       <div>
         <Mapa fill={theme === themes.light ? theme.shadowColor : theme.bg} />
         <Title>
-          <MdWarning color={theme.color} />
+          <MdWarning fontSize="1em" color={theme.color} />
           <span>Error With Connection</span>
         </Title>
       </div>

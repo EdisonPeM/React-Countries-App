@@ -12,7 +12,7 @@ export const Nav = styled.nav`
   justify-content: space-between;
   align-items: center;
 
-  font-size: 10px;
+  font-size: 12px;
   padding: 15px ${generalStyles.mobile.paddingVieport};
   @media (${generalStyles.breakpoint}) {
     font-size: initial; // 16px
@@ -48,7 +48,9 @@ Nav.ThemeButton = styled.button`
   }
 `;
 
-export const ToTop = styled.a`
+export const ToTop = styled.a.attrs(() => ({
+  href: '#',
+}))`
   color: inherit;
   text-decoration: none;
 `;

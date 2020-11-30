@@ -16,7 +16,7 @@ function Navbar({ changeTheme }) {
   return (
     <Nav show={showNav}>
       <Nav.Title>
-        <ToTop href="#">Where in the world?</ToTop>
+        <ToTop>Where in the world?</ToTop>
       </Nav.Title>
       <Nav.ThemeButton onClick={changeTheme}>
         {currentTheme === themes.light ? (

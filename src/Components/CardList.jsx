@@ -1,12 +1,7 @@
 import styled from 'styled-components';
-
 import VirtualScroll from 'virtual-scroll-component';
-import Country from 'Components/CountryCard';
 
-import LazyLoad, { forceCheck } from 'react-lazyload';
-
-import CardPlaceholder from 'Components/Placeholders/Card';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 const List = styled(VirtualScroll)`
   display: grid !important;
@@ -15,27 +10,17 @@ const List = styled(VirtualScroll)`
   gap: 70px;
 `;
 
-const DATA_LENGTH = 12;
+const DATA_LENGTH = 6;
 
-function CardList({ items = [] }) {
+function CardList({ children, rowHeight = 'auto' }) {
   const [dataLimit, setDataLimit] = useState(DATA_LENGTH);
   const handleLastRow = () => {
     setDataLimit(dataLimit + DATA_LENGTH);
   };
 
-  useEffect(forceCheck);
-
   return (
-    <List onLastRow={handleLastRow} rowHeight={350}>
-      {items.slice(0, dataLimit).map(c => (
-        <LazyLoad
-          height={230}
-          key={c.alpha3Code}
-          placeholder={<CardPlaceholder />}
-        >
-          <Country {...c} />
-        </LazyLoad>
-      ))}
+    <List onLastRow={handleLastRow} rowHeight={rowHeight}>
+      {children.slice(0, dataLimit)}
     </List>
   );
 }

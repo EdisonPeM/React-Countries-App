@@ -1,8 +1,8 @@
 import { useState } from 'react';
 
-export default function useLocalStorage(initialState, key = 'data') {
+export default function useSessionStorage(initialState, key = 'data') {
   const [data, setData] = useState(() => {
-    const savedData = JSON.parse(localStorage.getItem(key));
+    const savedData = JSON.parse(sessionStorage.getItem(key));
     if (savedData !== null) {
       return savedData;
     }
@@ -10,7 +10,7 @@ export default function useLocalStorage(initialState, key = 'data') {
   });
 
   const saveInStorage = newData => {
-    localStorage.setItem(key, JSON.stringify(newData));
+    sessionStorage.setItem(key, JSON.stringify(newData));
     setData(newData);
   };
 
