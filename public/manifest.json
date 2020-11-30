@@ -4,7 +4,7 @@
   "icons": [
     {
       "src": "favicon-32x32.png",
-      "sizes": "32x32 24x24 16x16",
+      "sizes": "64x64 32x32 24x24",
       "type": "image/png"
     },
     {
@@ -19,12 +19,12 @@
     },
     {
       "src": "/android-chrome-512x512.png",
-      "sizes": "64x64 512x512",
+      "sizes": "512x512",
       "type": "image/png"
     }
   ],
   "theme_color": "#fafafa",
-  "background_color": "#fafafa",
+  "background_color": "#2b3945",
   "start_url": ".",
-  "display": "standalone"
+  "display": "fullscreen"
 }
