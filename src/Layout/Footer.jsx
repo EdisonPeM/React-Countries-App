@@ -40,7 +40,7 @@ function Footer() {
         </a>
         <br />
         <small>
-          <span>Imagen de </span>
+          <span>Icon de </span>
           <a href="https://pixabay.com/es/users/openclipart-vectors-30363/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=153534">
             OpenClipart-Vectors
           </a>
