@@ -1,6 +1,14 @@
 {
-  "name": "myapp",
+  "name": "react-countries-app",
   "version": "0.1.0",
+  "author": "Edison Peñuela",
+  "description": "Frontendmentor Challenge - Rest Countries App With color Theme Switcher",
+  "keyworkds": [
+    "Challenge",
+    "Frontendmentor",
+    "REST API",
+    "Countries"
+  ],
   "private": true,
   "dependencies": {
     "@loadable/component": "^5.14.1",
@@ -20,7 +28,19 @@
   "devDependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10"
+    "@testing-library/user-event": "^12.1.10",
+    "workbox-background-sync": "^5.1.3",
+    "workbox-broadcast-update": "^5.1.3",
+    "workbox-cacheable-response": "^5.1.3",
+    "workbox-core": "^5.1.3",
+    "workbox-expiration": "^5.1.3",
+    "workbox-google-analytics": "^5.1.3",
+    "workbox-navigation-preload": "^5.1.3",
+    "workbox-precaching": "^5.1.3",
+    "workbox-range-requests": "^5.1.3",
+    "workbox-routing": "^5.1.4",
+    "workbox-strategies": "^5.1.3",
+    "workbox-streams": "^5.1.3"
   },
   "scripts": {
     "start": "react-scripts start",
