@@ -38,6 +38,17 @@ function Footer() {
         >
           Edison Peñuela.
         </a>
+        <br />
+        <small>
+          <span>Imagen de </span>
+          <a href="https://pixabay.com/es/users/openclipart-vectors-30363/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=153534">
+            OpenClipart-Vectors
+          </a>
+          <span> en </span>
+          <a href="https://pixabay.com/es/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=153534">
+            Pixabay
+          </a>
+        </small>
       </p>
     </Foot>
   );
