@@ -4,6 +4,7 @@ import { precacheAndRoute, createHandlerBoundToURL } from 'workbox-precaching';
 import { registerRoute } from 'workbox-routing';
 import { CacheFirst, NetworkFirst } from 'workbox-strategies';
 import { CacheableResponsePlugin } from 'workbox-cacheable-response';
+import { ExpirationPlugin } from 'workbox-expiration';
 
 // Clients.claim() hace que el trabajador del servicio tome el control de la página
 // cuando registra por primera vez un trabajador del servicio.
@@ -23,6 +24,36 @@ registerRoute(
     !url.pathname.startsWith('/_') &&
     !url.pathname.match(fileExtensionRegexp),
   createHandlerBoundToURL(process.env.PUBLIC_URL + '/index.html')
+);
+
+// API
+registerRoute(
+  new RegExp('https://restcountries.eu/rest/v2/'),
+  new NetworkFirst({
+    cacheName: 'API',
+    plugins: [
+      new CacheableResponsePlugin({
+        statuses: [200],
+      }),
+    ],
+  })
+);
+
+// Data
+registerRoute(
+  new RegExp('https://restcountries.eu/data'),
+  new CacheFirst({
+    cacheName: 'DataAPI',
+    plugins: [
+      new ExpirationPlugin({
+        maxAgeSeconds: 7 * 24 * 60 * 60, // a Week
+        maxEntries: 250,
+      }),
+      new CacheableResponsePlugin({
+        statuses: [200],
+      }),
+    ],
+  })
 );
 
 // Cache images with a Cache First strategy
