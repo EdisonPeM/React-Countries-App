@@ -40,12 +40,12 @@ async function registerValidSW(swUrl, config) {
         if (installingWorker.state !== 'installed') return;
         if (navigator.serviceWorker.controller) {
           console.log(
-            'New content is available and will be used when all tabs for this page are closed. See https://cra.link/PWA.'
+            '[SW] New content is available and will be used when all tabs for this page are closed.'
           );
 
           if (config && config.onUpdate) config.onUpdate(registration);
         } else {
-          console.log('Content is cached for offline use.');
+          console.log('[SW] Content is cached for offline use.');
 
           // Execute callback
           if (config && config.onSuccess) config.onSuccess(registration);
@@ -53,7 +53,7 @@ async function registerValidSW(swUrl, config) {
       };
     };
   } catch (error) {
-    console.error('Error during service worker registration:', error);
+    console.error('[SW] Error during service worker registration:', error);
   }
 }
 
@@ -80,7 +80,7 @@ async function checkValidServiceWorker(swUrl, config) {
     }
   } catch {
     console.log(
-      'No internet connection found. App is running in offline mode.'
+      '[SW] No internet connection found. App is running in offline mode.'
     );
   }
 }
