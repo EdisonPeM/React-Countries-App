@@ -1,13 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { HelmetProvider } from 'react-helmet-async';
+import { FavsProvider } from './favsContext';
+
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import App from './App';
 
 ReactDOM.render(
   <React.StrictMode>
     <HelmetProvider>
-      <App />
+      <FavsProvider>
+        <App />
+      </FavsProvider>
     </HelmetProvider>
   </React.StrictMode>,
   document.getElementById('root')

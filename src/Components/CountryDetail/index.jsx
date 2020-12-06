@@ -11,6 +11,7 @@ import CountryMap from 'Components/CountryMap';
 import useGeoData from 'Hooks/useGeoData';
 
 import Clock from 'Components/Clock';
+import FavIcon from 'Components/FavIcon';
 
 function CountryDetail(props) {
   const geoData = useGeoData(props.alpha3Code);
@@ -79,6 +80,9 @@ function CountryDetail(props) {
           />
         )}
         <Country.Body>
+          <Country.FavIcon>
+            <FavIcon code={props.alpha3Code} size="32px" />
+          </Country.FavIcon>
           <Country.Title>{props.name}</Country.Title>
           <Country.Info>
             <Country.List>

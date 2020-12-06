@@ -31,6 +31,11 @@ Card.Body = styled.div`
   height: 175px;
 `;
 
+Card.FavIcon = styled.div`
+  float: right;
+  margin: 10px 0;
+`;
+
 // The Card is an Article, therefore the title must be an h1
 Card.Title = styled.h1`
   font-size: 1.25em;

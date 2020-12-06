@@ -85,6 +85,14 @@ Country.Map = styled.div`
   }
 `;
 
+Country.FavIcon = styled.div`
+  float: right;
+  @media (${generalStyles.breakpoint}) {
+    float: left;
+    margin-right: 10px;
+  }
+`;
+
 Country.Title = styled.h1`
   @media (${generalStyles.breakpoint}) {
     font-size: 2em;

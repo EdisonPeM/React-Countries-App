@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, useMemo, useEffect } from 'react';
+import React, { lazy, Suspense, useMemo, useEffect, useContext } from 'react';
 
 import useCountries from 'Hooks/useCountries';
 import useInputControl from 'Hooks/useInputControl';
@@ -16,11 +16,14 @@ import { normalizeText as n } from 'Utils/Formater';
 
 import loadable from '@loadable/component';
 import { Helmet } from 'react-helmet-async';
+import { FavsContext } from 'favsContext';
+
 const Country = loadable(() => import('Components/CountryCard'));
 const CardList = loadable(() => import('Components/CardList'));
 const Error = lazy(() => import('Components/Errors/Home'));
 
 function Home() {
+  const { favs } = useContext(FavsContext);
   const { data: countries, loading, error } = useCountries(
     'all?fields=alpha3Code;name;capital;population;region;flag'
   );
@@ -45,6 +48,13 @@ function Home() {
       c => n(c.name).includes(n(nameF)) || n(c.capital).includes(n(nameF))
     );
   }, [countriesPerRegion, nameF]);
+
+  // Ordered Favs Countries First
+  const filteredFavsCountries = useMemo(() => {
+    const orderedCountries = [...filteredCountries];
+    orderedCountries.sort(c => (favs.includes(c.alpha3Code) ? -1 : 1));
+    return orderedCountries;
+  }, [favs, filteredCountries]);
 
   // Render Section
   if (error)
@@ -74,7 +84,7 @@ function Home() {
         <PlaceHolder />
       ) : (
         <CardList rowHeight={335}>
-          {filteredCountries.map(c => (
+          {filteredFavsCountries.map(c => (
             <Country key={c.alpha3Code} {...c} />
           ))}
         </CardList>
