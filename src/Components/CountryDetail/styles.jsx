@@ -32,22 +32,22 @@ export const Country = styled.article`
     grid-template-columns: repeat(2, 600px);
     align-items: start;
   }
-`;
 
-export const Background = styled.div`
-  ${({ theme }) =>
-    theme === themes.light &&
-    css`
-      // When the theme is ligth
-      background-color: white;
-    `}
-
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: -10;
+  &::after {
+    content: '';
+    display: block;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -10;
+    ${({ theme }) =>
+      theme === themes.light &&
+      css`
+        background-color: white;
+      `}
+  }
 `;
 
 Country.Flag = styled.img`
@@ -72,6 +72,16 @@ Country.Body = styled.div`
   font-size: 14px;
   @media (${breakpoints.mobileL}) {
     font-size: 16px;
+  }
+`;
+
+Country.Map = styled.div`
+  border-radius: 5px;
+  overflow: hidden;
+
+  height: 300px;
+  @media (${generalStyles.breakpoint}) {
+    height: 400px;
   }
 `;
 

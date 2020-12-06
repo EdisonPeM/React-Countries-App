@@ -1,16 +1,32 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet-async';
 
 import { numberFormat as nF } from 'Utils/Formater';
 import LinkCard from '../LinkCard';
 import useCountries from 'Hooks/useCountries';
-import { Background, Country, Borders } from './styles';
+import { Country, Borders } from './styles';
+
+import CountryMap from 'Components/CountryMap';
+import useGeoData from 'Hooks/useGeoData';
 
 function CountryDetail(props) {
+  const geoData = useGeoData(props.alpha3Code);
   const { data: borders, loading, error } = useCountries(
     props.borders.length > 0 ? `alpha?codes=${props.borders.join(';')}` : ''
   );
+
+  const zoom = useMemo(() => {
+    const { area } = props;
+    if (area > 10000000) return 2;
+    if (area > 1000000) return 3;
+    if (area > 100000) return 4;
+    if (area > 50000) return 5;
+    if (area > 5000) return 6;
+    if (area > 500) return 7;
+    if (area > 50) return 8;
+    return 9;
+  }, [props]);
 
   return (
     <>
@@ -18,12 +34,36 @@ function CountryDetail(props) {
         <title>React Countries App | {props.name}</title>
       </Helmet>
       <Country>
-        <Background />
-        <Country.Flag
-          src={props.flag}
-          alt={`Flag of ${props.name}`}
-          title={`Flag of ${props.name}`}
-        />
+        {props.showMap ? (
+          <Country.Map>
+            <CountryMap
+              center={props.latlng}
+              geoData={geoData}
+              zoom={zoom}
+              PopupInfo={() => (
+                <p>
+                  <strong>Country: </strong>
+                  <span>{props.name}</span>
+                  <br />
+                  <strong>Capital: </strong>
+                  <span>{props.capital}</span>
+                  <br />
+                  <strong>Area: </strong>
+                  <em>{nF(props.area)} m2</em>
+                  <br />
+                  <strong>Population: </strong>
+                  <em>{nF(props.population)}</em>
+                </p>
+              )}
+            />
+          </Country.Map>
+        ) : (
+          <Country.Flag
+            src={props.flag}
+            alt={`Flag of ${props.name}`}
+            title={`Flag of ${props.name}`}
+          />
+        )}
         <Country.Body>
           <Country.Title>{props.name}</Country.Title>
           <Country.Info>
