@@ -1,15 +1,11 @@
 import React, { useEffect, lazy, Suspense } from 'react';
 import useCountries from 'Hooks/useCountries';
 
-// import { navigate } from '@reach/router';
-
-import ReturnLink from 'Components/ReturnLink';
-
+import DetailLinks from 'Components/DetailLinks';
 import PlaceHolder from 'Components/Placeholders/Detail';
-// import Error from 'Components/Errors/Detail';
-// import CountryDetail from 'Components/CountryDetail';
 
 import loadable from '@loadable/component';
+import useToggle from 'Hooks/useToggle';
 
 const CountryDetail = loadable(() => import('Components/CountryDetail'));
 const NetworkConnectionError = loadable(() => import('Components/Errors/Home'));
@@ -17,6 +13,7 @@ const Error = lazy(() => import('Components/Errors/Detail'));
 
 function Detail({ code }) {
   const { data: info, loading, error } = useCountries(`alpha/${code}`);
+  const [showMap, toggleShowMap] = useToggle(false);
 
   // Use Effect to go to top when code change
   useEffect(() => {
@@ -25,7 +22,7 @@ function Detail({ code }) {
 
   return (
     <>
-      <ReturnLink />
+      <DetailLinks {...{ showMap, toggleShowMap }} />
       {loading ? (
         <PlaceHolder />
       ) : error ? (
@@ -37,7 +34,7 @@ function Detail({ code }) {
           </Suspense>
         )
       ) : (
-        <CountryDetail {...info} />
+        <CountryDetail {...info} showMap={showMap} />
       )}
     </>
   );

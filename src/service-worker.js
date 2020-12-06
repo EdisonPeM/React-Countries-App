@@ -38,10 +38,10 @@ registerRoute(
 );
 
 // Cache pwa resources with a Network First strategy
-registerRoute(
-  '/service-worker.js',
-  new NetworkFirst({ cacheName: 'serviceWorker' })
-);
+// registerRoute(
+//   '/service-worker.js',
+//   new NetworkFirst({ cacheName: 'serviceWorker' })
+// );
 
 // Cache API requests with a Network First strategy
 registerRoute(
@@ -49,6 +49,22 @@ registerRoute(
   new NetworkFirst({
     cacheName: 'API',
     plugins: [
+      new CacheableResponsePlugin({
+        statuses: [200],
+      }),
+    ],
+  })
+);
+
+// Cache API requests with a Network First strategy
+registerRoute(
+  new RegExp('^https://\\w.tile.openstreetmap.org/\\d+/\\d+/\\d+.png$'),
+  new NetworkFirst({
+    cacheName: 'Maps',
+    plugins: [
+      new ExpirationPlugin({
+        maxAgeSeconds: 7 * 24 * 60 * 60, // a Week
+      }),
       new CacheableResponsePlugin({
         statuses: [200],
       }),
