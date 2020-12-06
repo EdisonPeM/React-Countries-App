@@ -10,10 +10,24 @@ import { Country, Borders } from './styles';
 import CountryMap from 'Components/CountryMap';
 import useGeoData from 'Hooks/useGeoData';
 
+import Clock from 'Components/Clock';
+
 function CountryDetail(props) {
   const geoData = useGeoData(props.alpha3Code);
   const { data: borders, loading, error } = useCountries(
     props.borders.length > 0 ? `alpha?codes=${props.borders.join(';')}` : ''
+  );
+
+  const timezones = useMemo(
+    () =>
+      props.timezones
+        .map(t => t.substr(3, 3))
+        .map(diff => diff.replace('0', ''))
+        .map(tz =>
+          tz.includes('+') ? tz.replace('+', '-') : tz.replace('-', '+')
+        )
+        .map(nDiff => `Etc/GMT${nDiff}`),
+    [props]
   );
 
   const zoom = useMemo(() => {
@@ -94,6 +108,16 @@ function CountryDetail(props) {
               </li>
               <li>
                 <b>Languages:</b> {props.languages.map(l => l.name).join(', ')}
+              </li>
+              <li>
+                <b>Timezones:</b>
+                <ul type="square">
+                  {timezones.map((d, i) => (
+                    <li key={i}>
+                      <Clock timezone={d} />
+                    </li>
+                  ))}
+                </ul>
               </li>
             </Country.List>
           </Country.Info>
