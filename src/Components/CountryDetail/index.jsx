@@ -31,18 +31,6 @@ function CountryDetail(props) {
     [props]
   );
 
-  const zoom = useMemo(() => {
-    const { area } = props;
-    if (area > 10000000) return 2;
-    if (area > 1000000) return 3;
-    if (area > 100000) return 4;
-    if (area > 50000) return 5;
-    if (area > 5000) return 6;
-    if (area > 500) return 7;
-    if (area > 50) return 8;
-    return 9;
-  }, [props]);
-
   return (
     <>
       <Helmet>
@@ -54,8 +42,8 @@ function CountryDetail(props) {
             <CountryMap
               center={props.latlng}
               geoData={geoData}
-              zoom={zoom}
-              PopupInfo={() => (
+              area={props.area}
+              popupInfo={
                 <p>
                   <strong>Country: </strong>
                   <span>{props.name}</span>
@@ -69,11 +57,12 @@ function CountryDetail(props) {
                   <strong>Population: </strong>
                   <em>{nF(props.population)}</em>
                 </p>
-              )}
+              }
             />
           </Country.Map>
         ) : (
           <Country.Flag
+            onClick={props.toggleShowMap}
             src={props.flag}
             alt={`Flag of ${props.name}`}
             title={`Flag of ${props.name}`}
