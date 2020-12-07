@@ -34,6 +34,8 @@ function Home() {
     window.scrollTo(0, 0);
   }, []);
 
+  const resetName = () => setNameF({ target: { value: '' } });
+
   // Calculate Filters
   // useMemo se utiliza para "recordar" **valores** calculados
   // Se debe usar cuando el calculo es costoso
@@ -70,6 +72,7 @@ function Home() {
         <title>React Countries App</title>
       </Helmet>
       <Filters
+        onReset={resetName}
         nameInput={{
           value: nameF,
           onChange: setNameF,

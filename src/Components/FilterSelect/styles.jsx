@@ -87,4 +87,7 @@ export const Option = styled.div`
 
 export const ChevronIcon = styled(IosArrowDown)`
   ${IconMixin}
+
+  transform: ${({ down }) => down && 'rotate(-180deg)'};
+  transition: transform 500ms;
 `;

@@ -1,8 +1,11 @@
 import styled, { css } from 'styled-components';
 
 import MdSearch from 'react-ionicons/lib/MdSearch';
+import IosCloseCircle from 'react-ionicons/lib/IosCloseCircle';
+
 import { IconMixin, ElementMixin } from 'Styles/Mixins';
 import { generalStyles } from 'Styles/GlobalStyles';
+import { breakpoints } from 'Styles/GlobalStyles';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -59,15 +62,17 @@ export const SearchIcon = styled(MdSearch)`
   transform: translate(-50%, -50%);
 `;
 
-// DEPRECATED
-export const Select = styled.select`
-  ${InputMixin}
-  padding: 0 25px 0 20px;
+export const ResetIcon = styled(IosCloseCircle)`
+  // The fill property is for filling in the color of a SVG.
+  ${IconMixin}
+  position: absolute;
+  top: 50%;
+  left: calc(100% - ${inputPadding} / 2);
+  transform: translate(-50%, -50%);
 
-  min-width: 200px;
-  width: 50%;
-  @media (${generalStyles.breakpoint}) {
-    margin-left: auto;
-    width: 200px;
+  @media (${breakpoints.laptop}) {
+    left: calc(480px - ${inputPadding} / 2);
   }
+
+  cursor: pointer;
 `;
