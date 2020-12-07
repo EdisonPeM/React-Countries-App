@@ -1,8 +1,7 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import useToggle from 'Hooks/useToggle';
 
 import { Select, ChevronIcon, Option } from './styles';
-import styled from 'styled-components';
 
 function FilterSelect({ value, options, setValue }) {
   const [showOptions, toggleOptions] = useToggle(false);
