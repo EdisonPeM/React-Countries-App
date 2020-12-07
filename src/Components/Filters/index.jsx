@@ -2,9 +2,9 @@ import React from 'react';
 
 import FilterSelect from '../FilterSelect';
 
-import { Wrapper, InputGroup, SearchIcon, Input } from './styles';
+import { Wrapper, InputGroup, SearchIcon, ResetIcon, Input } from './styles';
 
-function Filters({ nameInput, regionInput }) {
+function Filters({ onReset, nameInput, regionInput }) {
   return (
     <Wrapper>
       <InputGroup>
@@ -14,6 +14,7 @@ function Filters({ nameInput, regionInput }) {
           {...nameInput}
         />
         <SearchIcon />
+        {nameInput.value !== '' && <ResetIcon onClick={onReset} />}
       </InputGroup>
       <InputGroup>
         <FilterSelect

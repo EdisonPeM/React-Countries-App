@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import useToggle from 'Hooks/useToggle';
 
 import { Select, ChevronIcon, Option } from './styles';
+import styled from 'styled-components';
 
 function FilterSelect({ value, options, setValue }) {
   const [showOptions, toggleOptions] = useToggle(false);
@@ -18,7 +19,7 @@ function FilterSelect({ value, options, setValue }) {
     <Select role="listbox" title="Filter by Region">
       <Select.Placeholder onClick={toggleOptions}>
         <span>Filter by Region</span>
-        <ChevronIcon />
+        <ChevronIcon down={showOptions} />
       </Select.Placeholder>
       <Select.Options hidden={!showOptions}>
         {options.map(opt => (
