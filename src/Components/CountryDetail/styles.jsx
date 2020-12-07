@@ -52,6 +52,7 @@ export const Country = styled.article`
 
 Country.Flag = styled.img`
   object-fit: cover;
+  cursor: pointer;
 
   width: 100%;
   height: auto;
@@ -90,6 +91,10 @@ Country.FavIcon = styled.div`
   @media (${generalStyles.breakpoint}) {
     float: left;
     margin-right: 10px;
+  }
+
+  @media (${breakpoints.laptopL}) {
+    margin-top: 35px;
   }
 `;
 

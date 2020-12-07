@@ -1,28 +1,57 @@
-import React from 'react';
+import React, { useEffect, useRef, useMemo } from 'react';
 import PropTypes from 'prop-types';
 
-import { MapContainer, TileLayer, GeoJSON, Marker, Popup } from 'react-leaflet';
+import {
+  MapContainer,
+  TileLayer,
+  GeoJSON,
+  Marker,
+  Popup,
+  useMap,
+} from 'react-leaflet';
+
+function CountryFigure({ data }) {
+  const map = useMap();
+  const geoJson = useRef(null);
+  useEffect(() => {
+    const bounds = geoJson.current.getBounds();
+    map.fitBounds(bounds);
+  }, [map]);
+
+  return <GeoJSON ref={geoJson} data={data} />;
+}
 
 function CountryMap({
   center = [],
   markerCenter = [],
-  PopupInfo = null,
+  popupInfo = null,
   geoData = null,
-  zoom = 5,
+  area = 0,
 }) {
+  const zoom = useMemo(() => {
+    if (area > 10000000) return 2;
+    if (area > 1000000) return 3;
+    if (area > 100000) return 4;
+    if (area > 50000) return 5;
+    if (area > 5000) return 6;
+    if (area > 500) return 7;
+    if (area > 50) return 8;
+    return 9;
+  }, [area]);
+
   return (
-    <MapContainer center={center} zoom={zoom} style={{ height: '100%' }}>
+    <MapContainer
+      center={center}
+      zoom={geoData ? 0 : zoom}
+      style={{ height: '100%' }}
+    >
       <TileLayer
         attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      {geoData && <GeoJSON data={geoData} />}
+      {geoData && <CountryFigure data={geoData} />}
       <Marker position={markerCenter.length > 0 ? markerCenter : center}>
-        {PopupInfo && (
-          <Popup>
-            <PopupInfo />
-          </Popup>
-        )}
+        {popupInfo && <Popup>{popupInfo}</Popup>}
       </Marker>
     </MapContainer>
   );
@@ -34,67 +63,3 @@ CountryMap.propTypes = {
 };
 
 export default CountryMap;
-/*
-export function other() {
-  const center = [51.505, -0.09];
-  const rectangle = [
-    [51.49, -0.08],
-    [51.5, -0.06],
-  ];
-
-  return (
-    <MapContainer center={center} zoom={13} scrollWheelZoom={false}>
-      <LayersControl position="topright">
-        <LayersControl.BaseLayer checked name="OpenStreetMap.Mapnik">
-          <TileLayer
-            attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-          />
-        </LayersControl.BaseLayer>
-        <LayersControl.BaseLayer name="OpenStreetMap.BlackAndWhite">
-          <TileLayer
-            attribution='&copy; <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
-            url="https://tiles.wmflabs.org/bw-mapnik/{z}/{x}/{y}.png"
-          />
-        </LayersControl.BaseLayer>
-        <LayersControl.Overlay name="Marker with popup">
-          <Marker position={center}>
-            <Popup>
-              A pretty CSS3 popup. <br /> Easily customizable.
-            </Popup>
-          </Marker>
-        </LayersControl.Overlay>
-        <LayersControl.Overlay checked name="Layer group with circles">
-          <LayerGroup>
-            <Circle
-              center={center}
-              pathOptions={{ fillColor: 'blue' }}
-              radius={200}
-            />
-            <Circle
-              center={center}
-              pathOptions={{ fillColor: 'red' }}
-              radius={100}
-              stroke={false}
-            />
-            <LayerGroup>
-              <Circle
-                center={[51.51, -0.08]}
-                pathOptions={{ color: 'green', fillColor: 'green' }}
-                radius={100}
-              />
-            </LayerGroup>
-          </LayerGroup>
-        </LayersControl.Overlay>
-        <LayersControl.Overlay name="Feature group">
-          <FeatureGroup pathOptions={{ color: 'purple' }}>
-            <Popup>Popup in FeatureGroup</Popup>
-            <Circle center={[51.51, -0.06]} radius={200} />
-            <Rectangle bounds={rectangle} />
-          </FeatureGroup>
-        </LayersControl.Overlay>
-      </LayersControl>
-    </MapContainer>
-  );
-}
-*/

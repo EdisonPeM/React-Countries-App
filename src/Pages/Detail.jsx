@@ -5,7 +5,7 @@ import DetailLinks from 'Components/DetailLinks';
 import PlaceHolder from 'Components/Placeholders/Detail';
 
 import loadable from '@loadable/component';
-import useToggle from 'Hooks/useToggle';
+import useSessionStorage from 'Hooks/useSessionStorage';
 
 const CountryDetail = loadable(() => import('Components/CountryDetail'));
 const NetworkConnectionError = loadable(() => import('Components/Errors/Home'));
@@ -13,7 +13,9 @@ const Error = lazy(() => import('Components/Errors/Detail'));
 
 function Detail({ code }) {
   const { data: info, loading, error } = useCountries(`alpha/${code}`);
-  const [showMap, toggleShowMap] = useToggle(false);
+  const [showMap, setShowMap] = useSessionStorage(false, `${code}_Map`);
+
+  const toggleShowMap = () => setShowMap(!showMap);
 
   // Use Effect to go to top when code change
   useEffect(() => {
@@ -34,7 +36,7 @@ function Detail({ code }) {
           </Suspense>
         )
       ) : (
-        <CountryDetail {...info} showMap={showMap} />
+        <CountryDetail {...info} {...{ showMap, toggleShowMap }} />
       )}
     </>
   );
