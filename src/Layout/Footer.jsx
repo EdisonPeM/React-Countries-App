@@ -39,7 +39,7 @@ function Footer() {
           Edison Peñuela.
         </a>
         <br />
-        <span>Icon de </span>
+        <span>Icon from </span>
         <a
           href="https://pixabay.com/es/users/openclipart-vectors-30363/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=153534"
           target="_blank"
@@ -47,7 +47,7 @@ function Footer() {
         >
           OpenClipart-Vectors
         </a>
-        <span> en </span>
+        <span> of </span>
         <a
           href="https://pixabay.com/es/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=153534"
           target="_blank"

@@ -7,11 +7,13 @@ import LinkCard from '../LinkCard';
 import useCountries from 'Hooks/useCountries';
 import { Country, Borders } from './styles';
 
-import CountryMap from 'Components/CountryMap';
 import useGeoData from 'Hooks/useGeoData';
 
 import Clock from 'Components/Clock';
 import FavIcon from 'Components/FavIcon';
+
+import loadable from '@loadable/component';
+const CountryMap = loadable(() => import('Components/CountryMap'));
 
 function CountryDetail(props) {
   const geoData = useGeoData(props.alpha3Code);

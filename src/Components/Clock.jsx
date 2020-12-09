@@ -12,7 +12,7 @@ function Clock({ timezone = 'Ect/GMT+5' }) {
   }, []);
 
   return (
-    <span>{mmt(date).tz(timezone).format('h:mm:ss a, [(]MMM Do YYYY[)]')}</span>
+    <span>{mmt(date).tz(timezone).format('hh:mm:ss a, [(]MM Do YYYY[)]')}</span>
   );
 }
 
