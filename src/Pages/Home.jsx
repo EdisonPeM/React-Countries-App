@@ -1,4 +1,4 @@
-import React, { lazy, Suspense, useMemo, useEffect, useContext } from 'react';
+import React, { useMemo, useEffect, useContext } from 'react';
 
 import useCountries from 'Hooks/useCountries';
 import useInputControl from 'Hooks/useInputControl';
@@ -8,19 +8,16 @@ import Filters from 'Components/Filters';
 
 import PlaceHolder from 'Components/Placeholders/Home';
 
-// import Error from 'Components/Errors/home';
-// import Country from 'Components/CountryCard';
-// import CardList from 'Components/CardList';
+import Country from 'Components/CountryCard';
+import CardList from 'Components/CardList';
 
-import { normalizeText as n } from 'Utils/Formater';
+import { normalizeText as nT } from 'Utils/Formater';
 
 import loadable from '@loadable/component';
 import { Helmet } from 'react-helmet-async';
 import { FavsContext } from 'favsContext';
 
-const Country = loadable(() => import('Components/CountryCard'));
-const CardList = loadable(() => import('Components/CardList'));
-const Error = lazy(() => import('Components/Errors/Home'));
+const Error = loadable(() => import('Components/Errors/Home'));
 
 function Home() {
   const { favs } = useContext(FavsContext);
@@ -47,7 +44,7 @@ function Home() {
   const filteredCountries = useMemo(() => {
     if (nameF === '') return countriesPerRegion;
     return countriesPerRegion.filter(
-      c => n(c.name).includes(n(nameF)) || n(c.capital).includes(n(nameF))
+      c => nT(c.name).includes(nT(nameF)) || nT(c.capital).includes(nT(nameF))
     );
   }, [countriesPerRegion, nameF]);
 
@@ -59,12 +56,7 @@ function Home() {
   }, [favs, filteredCountries]);
 
   // Render Section
-  if (error)
-    return (
-      <Suspense fallback={<div>Error With Connection</div>}>
-        <Error />
-      </Suspense>
-    );
+  if (error) return <Error />;
 
   return (
     <>
