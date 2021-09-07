@@ -89,6 +89,11 @@ registerRoute(
   })
 );
 
+registerRoute(
+  new RegExp('https://unpkg.com/'),
+  new CacheFirst({ cacheName: 'CDNs' })
+);
+
 // con self.skipWaiting(); el service worker se activa apenas finaliza su instalación.
 // y reemplaza a uno anterior para evitar que el usuario tenga que cerrar la página
 // registration.waiting.postMessage({type: 'SKIP_WAITING'})
